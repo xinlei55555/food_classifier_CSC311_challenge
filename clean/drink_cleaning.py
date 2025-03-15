@@ -72,7 +72,7 @@ def process_drink(input_str: str, common_drinks: OrderedDict, default: str = "no
                 best_key = k
 
     # If we found something with best similarity, return that
-    if best_key is not None:
+    if best_key is not None and best_score > 0.5:
         print(f"WARNING: failed to find good match for '{text}', returning '{best_key}' instead by similarity")
         return common_drinks[best_key]
 
