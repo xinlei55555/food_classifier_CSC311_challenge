@@ -4,7 +4,7 @@ from number_cleaning import process_string
 from onehot_cleaning import process_multihot, process_onehot
 from drink_cleaning import process_drink, parse_common_drinks
 
-csv_path = '../datasets/cleaned_data_combined_modified.csv'
+csv_path = '../data/cleaned_data_combined_modified.csv'
 q3_options = ['Week day lunch', 'Week day dinner', 'Weekend lunch', 'Weekend dinner', 'At a party', 'Late night snack']
 q7_options = ['Friends', 'Teachers', 'Siblings', 'Parents', 'None', 'Strangers']
 q8_options = ['None', 'A little (mild)', 'A moderate amount (medium)', 'A lot (hot)',
