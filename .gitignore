@@ -1,3 +1,5 @@
 data/
 venv/
-*.pdf
+outputs/
+__pycache__/
+.idea/
