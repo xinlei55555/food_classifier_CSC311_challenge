@@ -1,10 +1,10 @@
 import csv
 from thefuzz import fuzz
 
-# Returns true if 2 strings are similar enough.
-def strings_similar(s1, s2):
-    return 
-
+"""
+    Returns the list of movies grouped together from the csv's 6th column.
+    Two movies are grouped together if fuzz.ratio() > 65.
+"""
 def extract_movies(csv_file):
     movies_list = []
     with open(csv_file, mode='r', encoding='utf-8') as file:
@@ -32,10 +32,20 @@ def extract_movies(csv_file):
         else:
             movie_directory[movie] = [movie]
 
-    return list(movie_directory.keys())
+    most_popular = []
+
+    for k, v in zip(movie_directory.keys(), movie_directory.values()):
+        if len(k) < 20:
+            most_popular.append((k, len(v)))
+
+    return most_popular
 
 if __name__ == '__main__':
     movies_list = extract_movies('../data/cleaned_data_combined_modified.csv')
-    for movie in movies_list:
-        if len(movie) < 20:
-            print(movie)
+    movies_list.sort(key=lambda x: x[1])
+    movies_list.reverse()
+
+    print(movies_list[:20])
+    #for movie in movies_list:
+    #    if len(movie) < 20:
+    #        print(movie)

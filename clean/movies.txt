@@ -76,7 +76,6 @@ barbie
 hitman
 liquorice pizza
 the dictator
-nothing
 anjaana anjaani
 hawkeye
 argo
@@ -219,7 +218,6 @@ oppenheimer
 drishyam
 us
 middle east movie
-none specifically
 nosferatu
 indiana jones
 angry birds
