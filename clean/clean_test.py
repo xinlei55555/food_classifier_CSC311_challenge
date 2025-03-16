@@ -19,7 +19,7 @@ if __name__ == '__main__':
     common_drinks = parse_common_drinks()
     process_string_vectorized = np.vectorize(process_string)
 
-    data = data[1:, :]  # Remove first question row
+    data = data[1:, :]  # Remove first question row*.pdf
 
     q1 = data[:, 1]  # How complex? (1-5)
     q2 = data[:, 2]  # How many ingredients? (open ended, numeric)
