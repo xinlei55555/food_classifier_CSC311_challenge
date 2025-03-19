@@ -66,6 +66,7 @@ def make_inference(model, vectorizer, text):
     total_samples = sum(class_counts.values())
     log_probs = {}
     
+    # TODO THIS IS PROBABLY WHERE EVERYTHING IS GOING  -- incorporate MAP properly
     for label in class_probs:
         log_prob = np.log((class_counts[label] + 2) / (total_samples + len(class_counts) * 4))  # MAP estimate for prior
         log_prob += np.sum(np.log(class_probs[label]) * text_vector)
