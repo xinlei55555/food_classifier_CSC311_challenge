@@ -37,3 +37,6 @@ if __name__ == '__main__':
     q6p = np.array([process_drink(x, common_drinks) for x in q6])
     q7p = np.array([process_multihot(x, q7_options) for x in q7])
     q8p = np.array([process_onehot(x, q8_options) for x in q8])
+
+    print(q1, q2, q3, q4, q5, q6, q7, q8, )
+    print(q2p, q3p, q4p, q6p, q7p, q8p, t)
