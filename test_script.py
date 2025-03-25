@@ -51,15 +51,16 @@ def main():
     print('data[:5]:', data[:5])
 
     # Grid search for best (a, b) values
-    a_range = b_range = [7]  # range(1, 20, 2)
+    a_range = b_range = range(0, 20, 2)
     a, b = grid_search(X_train, y_train, vocab, X_test, y_test, a_range, b_range)
+    print(f'Best (a, b) values: ({a}, {b})')
 
     class_priors, class_probs = train_naive_bayes(
         X_train, y_train, vocab, a, b)
 
     print('len(class_priors), len(class_probs), len(vocab)')
     print(len(class_priors), len(class_probs), len(vocab))
-    # print(class_priors, class_probs, vocab)
+    print('len(class_probs["Pizza"]: ', len(class_probs['Pizza']))
 
     accuracy = evaluate_accuracy(class_priors, class_probs, vocab, X_test, y_test)
     print(f'Accuracy: {accuracy:.2f}')
@@ -75,7 +76,7 @@ def main():
 
     # Run inference
     inference = make_inference(
-        class_priors, class_probs, vocab, 'I love eating this product on Saturday evening with 3-4 ingredients, and I have little hot sauce', verbose=True)
+        class_priors, class_probs, vocab, 'I eat this product on Saturday evening with 3-4 ingredients, and I have little hot sauce. with wasabi sake', verbose=True)
     print(f'Inference: {inference}')
     # -------------------- New code with Numpy only ---------------
 
