@@ -23,35 +23,63 @@
 
 # -------------------- New code with Numpy only ---------------
 import csv
-from models.naive_bayes_numpy_only import grid_search, train_naive_bayes, make_inference
+import random
+import numpy as np
+from models.naive_bayes_numpy_only import grid_search, train_naive_bayes, make_inference, load_data, vocab_train_test_split, evaluate_accuracy
 
-# Load and train model
-data_path = 'data/cleaned_data_combined_modified.csv'
-a, b = grid_search(data_path, list(range(0, 12)), list(range(0, 12)))
-model = train_naive_bayes(data_path, a, b)
-_, _, _, X_test, y_test = model
 
-# Evaluate accuracy
-def evaluate_accuracy(model, X_test, y_test):
-    correct = 0
-    for i in range(len(X_test)):
-        prediction = make_inference(model, ' '.join(map(str, X_test[i])))
-        if prediction == y_test[i]:
-            correct += 1
-    return correct / len(y_test)
+def set_random_seed(seed):
+    """Sets random seed for training reproducibility
 
-accuracy = evaluate_accuracy(model, X_test, y_test)
-print(f'Accuracy: {accuracy:.2f}')
+    Args:
+        seed (int)"""
+    random.seed(seed)
+    np.random.seed(seed)
 
-# Read and preprocess data
-with open(data_path, newline='', encoding='utf-8') as f:
-    reader = csv.reader(f)
-    header = next(reader)  # Skip header
-    data = [','.join(row[:-1]) for row in reader]  # Combine all feature columns into text
+def main():
+    # Load and train model
+    data_path = 'data/cleaned_data_combined_modified.csv'
 
-# vectorizer = fit_vectorizer(data)
+    # Read and preprocess data
+    data = load_data(data_path)
 
-# Run inference
-inference = make_inference(model, 'I love eating this product on Saturday evening with 3-4 ingredients, and I have little hot sauce')
-print(f'Inference: {inference}')
-# -------------------- New code with Numpy only ---------------
+    # remove certain columns from the data:
+    unwanted_indexes = [0, 1, 2, 4] # [index, how complex (1-5), how many ingredients, cost]
+    data = np.delete(data, unwanted_indexes, axis=1)
+
+    X_train, X_test, y_train, y_test, vocab = vocab_train_test_split(data, 0.2)
+    print('data[:5]:', data[:5])
+
+    # Grid search for best (a, b) values
+    a_range = b_range = [7]  # range(1, 20, 2)
+    a, b = grid_search(X_train, y_train, vocab, X_test, y_test, a_range, b_range)
+
+    class_priors, class_probs = train_naive_bayes(
+        X_train, y_train, vocab, a, b)
+
+    print('len(class_priors), len(class_probs), len(vocab)')
+    print(len(class_priors), len(class_probs), len(vocab))
+    # print(class_priors, class_probs, vocab)
+
+    accuracy = evaluate_accuracy(class_priors, class_probs, vocab, X_test, y_test)
+    print(f'Accuracy: {accuracy:.2f}')
+
+    # Read and preprocess data
+    with open(data_path, newline='', encoding='utf-8') as f:
+        reader = csv.reader(f)
+        header = next(reader)  # Skip header
+        # Combine all feature columns into text
+        data = [','.join(row[:-1]) for row in reader]
+
+    # vectorizer = fit_vectorizer(data)
+
+    # Run inference
+    inference = make_inference(
+        class_priors, class_probs, vocab, 'I love eating this product on Saturday evening with 3-4 ingredients, and I have little hot sauce', verbose=True)
+    print(f'Inference: {inference}')
+    # -------------------- New code with Numpy only ---------------
+
+
+if __name__ == '__main__':
+    set_random_seed(42)
+    main()
