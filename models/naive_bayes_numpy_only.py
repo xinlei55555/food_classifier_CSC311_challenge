@@ -5,16 +5,21 @@ from collections import defaultdict
 from itertools import product
 
 # Tokenization function
+
+
 def tokenize(text):
     return re.findall(r'\b\w+\b', text.lower())
 
 # Vectorizer functions
+
+
 def fit_vectorizer(data):
     vocabulary = set()
     for row in data:
         words = tokenize(row)
         vocabulary.update(words)
     return {word: idx for idx, word in enumerate(sorted(vocabulary))}
+
 
 def transform_vectorizer(data, vocab):
     vectors = np.zeros((len(data), len(vocab)), dtype=int)
@@ -27,12 +32,14 @@ def transform_vectorizer(data, vocab):
     vectors = (vectors > 0).astype(int)
     return vectors
 
+
 def load_data(data_path):
     with open(data_path, newline='', encoding='utf-8') as f:
         reader = csv.reader(f)
         header = next(reader)  # Skip header
         data = [row for row in reader]
     return data
+
 
 def vocab_train_test_split(data, test_size=0.2):
     # Combine all feature columns into text
@@ -51,122 +58,98 @@ def vocab_train_test_split(data, test_size=0.2):
     y_train, y_test = y[indices[:split]], y[indices[split:]]
     return X_train, X_test, y_train, y_test, vocab
 
+
 def train_naive_bayes(X_train, y_train, vocab, a=1, b=1):
     '''Added laplacian smoothing to avoid zero probabilities'''
     classes = np.unique(y_train)
     class_counts = np.array([np.sum(y_train == c) for c in classes])
     total_samples = len(y_train)
-    
+
     # Class priors (with Dirichlet smoothing)
-    class_priors = (class_counts + a - 1) / (total_samples + (a + b - 2) * len(classes))
-    
+    class_priors = (class_counts + a - 1) / \
+        (total_samples + (a + b - 2) * len(classes))
+
     # Likelihoods (with Laplace smoothing)
     class_probs = {}
     epsilon = 1e-10  # Avoid log(0)
-    
+
     for c in classes:
         X_class = X_train[y_train == c]
-        theta = (np.sum(X_class, axis=0) + 1) / (len(X_class) + 2)  # Laplace smoothing
+        theta = (np.sum(X_class, axis=0) + a - 1) / \
+            (len(X_class) + a + b - 2)  # MAP prior 1 and 2 to avoid 0
         theta = np.clip(theta, epsilon, 1 - epsilon)  # Avoid 0 or 1
-        class_probs[c] = theta # probability of each word to appear
-    
+        class_probs[c] = theta  # probability of each word to appear
+
     return dict(zip(classes, class_priors)), class_probs
 
-def evaluate_accuracy(class_priors, class_probs, vocab, X_test, y_test):
+
+def predict_class(class_priors, class_probs, feature_vector, verbose=False):
+    """
+    Unified prediction function used by both evaluate_accuracy and make_inference.
+
+    Args:
+        class_priors: Dict of class priors {class_label: prior_prob}
+        class_probs: Dict of word probabilities {class_label: theta_vector}
+        feature_vector: Binary feature vector of shape (vocab_size,)
+        verbose: If True, prints debug info
+
+    Returns:
+        Predicted class label
+    """
+    max_log_prob = -np.inf
+    best_class = None
+
+    for class_label, prior in class_priors.items():
+        theta = class_probs[class_label]
+        theta_clipped = np.clip(theta, 1e-10, 1 - 1e-10)  # Numerical stability
+
+        log_prob = np.log(prior)
+        log_prob += np.sum(
+            feature_vector * np.log(theta_clipped) +
+            (1 - feature_vector) * np.log(1 - theta_clipped)
+        )
+
+        if verbose:
+            print(f'Class: {class_label}, Log Prob: {log_prob:.2f}')
+
+        if log_prob > max_log_prob:
+            max_log_prob = log_prob
+            best_class = class_label
+
+    return best_class
+
+
+def evaluate_accuracy(class_priors, class_probs, vocab, X_test, y_test, verbose=False):
+    """
+    Evaluates accuracy using the unified predict_class function.
+    """
     correct = 0
     for i in range(len(X_test)):
-        # Directly use X_test[i] instead of reconstructing text
-        log_probs = {}
-        for c in class_priors:
-            theta = class_probs[c]
-            log_prob = np.log(class_priors[c])
-            log_prob += np.sum(X_test[i] * np.log(theta) + (1 - X_test[i]) * np.log(1 - theta))
-            log_probs[c] = log_prob
-        prediction = max(log_probs, key=log_probs.get)
+        prediction = predict_class(
+            class_priors,
+            class_probs,
+            X_test[i],  # Directly use precomputed feature vector
+            verbose=verbose
+        )
         if prediction == y_test[i]:
             correct += 1
     return correct / len(y_test)
 
-# # Naive Bayes training function with adjustable MAP estimation
-# def train_naive_bayes(X_train, y_train, vocab, a=2, b=2):
-#     classes = np.unique(y_train)
-#     class_counts = np.array([np.sum(y_train == c) for c in classes])
-#     total_samples = len(y_train)
-    
-#     # Compute class priors using MAP estimate
-#     class_priors = (class_counts + a - 1) / (total_samples + (a + b - 2) * len(classes))
-    
-#     # Compute likelihoods for each class
-#     class_probs = {}
-#     for i, c in enumerate(classes):
-#         X_class = X_train[y_train == c]
-#         # Vectorized calculation of theta for each class
-#         theta = (np.sum(X_class, axis=0) + a - 1) / (len(X_class) + a + b - 2)
-#         class_probs[c] = theta
-    
-#     return dict(zip(classes, class_priors)), class_probs
 
-# Naive Bayes inference function
-# def make_inference(class_priors, class_probs, vocab, text, verbose=False):
-#     text_vector = transform_vectorizer([text], vocab)[0]  # Get single vector
-    
-#     max_log_prob = -np.inf
-#     best_class = None
-    
-#     for class_label in class_priors:
-#         theta = class_probs[class_label]
-#         # Vectorized log probability calculation
-#         log_prob = np.log(class_priors[class_label])
-#         log_prob += np.sum(text_vector * np.log(theta) + (1 - text_vector) * np.log(1 - theta))
-        
-#         if verbose:
-#             print(f'Class: {class_label}, Log Prob: {log_prob:.2f}')
-
-#         if log_prob > max_log_prob:
-#             max_log_prob = log_prob
-#             best_class = class_label
-            
-#     return best_class
 def make_inference(class_priors, class_probs, vocab, text, verbose=False):
-    # Convert text to binary feature vector
-    text_vector = transform_vectorizer([text], vocab)[0]  # Shape: (vocab_size,)
-    
-    max_log_prob = -np.inf
-    best_class = None
-    
-    for class_label, prior in class_priors.items():
-        theta = class_probs[class_label]  # Shape: (vocab_size,)
-        
-        # Numerical stability: clip probabilities to avoid log(0)
-        theta_clipped = np.clip(theta, 1e-10, 1 - 1e-10)
-        
-        # Vectorized log probability calculation
-        log_prob = np.log(prior)
-        log_prob += np.sum(
-            text_vector * np.log(theta_clipped) + 
-            (1 - text_vector) * np.log(1 - theta_clipped)
-        )
-        
-        if verbose:
-            print(f'Class: {class_label}, Log Prob: {log_prob:.2f}, Theta_min: {np.min(theta):.3f}, Theta_max: {np.max(theta):.3f}')
-        
-        if log_prob > max_log_prob:
-            max_log_prob = log_prob
-            best_class = class_label
-            
-    return best_class
-# # Evaluate accuracy of model
-# def evaluate_accuracy(class_priors, class_probs, vocab, X_test, y_test):
-#     correct = 0
-#     for i in range(len(X_test)):
-#         # Reconstruct the original text for prediction (this might need adjustment)
-#         prediction = make_inference(
-#             class_priors, class_probs, vocab, ' '.join(map(str, X_test[i])))
-#         if prediction == y_test[i]:
-#             correct += 1
-#     return correct / len(y_test)
+    """
+    Makes inference on raw text using the unified predict_class function.
+    """
+    text_vector = transform_vectorizer(
+        [text], vocab)[0]  # Convert text to features
+    return predict_class(
+        class_priors,
+        class_probs,
+        text_vector,
+        verbose=verbose
+    )
 
-# Grid search for best (a, b) values
+
 def grid_search(X_train, y_train, vocab, X_test, y_test, a_values, b_values):
     best_accuracy = 0
     best_params = (None, None)

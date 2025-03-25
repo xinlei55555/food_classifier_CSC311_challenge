@@ -49,7 +49,8 @@ def main():
 
     X_train, X_test, y_train, y_test, vocab = vocab_train_test_split(data, 0.2)
     print('data[:5]:', data[:5])
-
+    print('X_train[:5]', X_train[:5])
+    
     # Grid search for best (a, b) values
     a_range = b_range = range(0, 20, 2)
     a, b = grid_search(X_train, y_train, vocab, X_test, y_test, a_range, b_range)
