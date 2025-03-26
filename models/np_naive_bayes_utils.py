@@ -175,6 +175,7 @@ def predict_class(class_priors, class_probs, feature_vector, verbose=False):
     """
     max_log_prob = -np.inf
     best_class = None
+    logits = defaultdict(float)
 
     for class_label, prior in class_priors.items():
         theta = class_probs[class_label]
@@ -192,8 +193,10 @@ def predict_class(class_priors, class_probs, feature_vector, verbose=False):
         if log_prob > max_log_prob:
             max_log_prob = log_prob
             best_class = class_label
+        
+        logits[class_label] = log_prob
 
-    return best_class
+    return best_class, logits
 
 
 def evaluate_accuracy(class_priors, class_probs, vocab, X_val, y_val, verbose=False):
@@ -202,7 +205,7 @@ def evaluate_accuracy(class_priors, class_probs, vocab, X_val, y_val, verbose=Fa
     """
     correct = 0
     for i in range(len(X_val)):
-        prediction = predict_class(
+        prediction, _ = predict_class(
             class_priors,
             class_probs,
             X_val[i],  # Directly use precomputed feature vector
