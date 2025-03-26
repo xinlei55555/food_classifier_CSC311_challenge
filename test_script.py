@@ -25,7 +25,7 @@
 import csv
 import random
 import numpy as np
-from models.naive_bayes_numpy_only import grid_search, train_naive_bayes, make_inference, load_data, vocab_train_test_split, evaluate_accuracy
+from models.naive_bayes_numpy_only import grid_search, train_naive_bayes, make_inference, load_data, train_val_test_split, evaluate_accuracy
 
 
 def set_random_seed(seed):
@@ -47,13 +47,13 @@ def main():
     unwanted_indexes = [0, 1, 2, 4] # [index, how complex (1-5), how many ingredients, cost]
     data = np.delete(data, unwanted_indexes, axis=1)
 
-    X_train, X_test, y_train, y_test, vocab = vocab_train_test_split(data, 0.2)
+    (X_train, y_train), (X_val, y_val), (X_test, y_test), vocab = train_val_test_split(data, split_file = 'datasets/train_test_split.csv')
     print('data[:5]:', data[:5])
     print('X_train[:5]', X_train[:5])
     
     # Grid search for best (a, b) values
     a_range = b_range = range(0, 20, 2)
-    a, b = grid_search(X_train, y_train, vocab, X_test, y_test, a_range, b_range)
+    a, b = grid_search(X_train, y_train, vocab, X_val, y_val, a_range, b_range)
     print(f'Best (a, b) values: ({a}, {b})')
 
     class_priors, class_probs = train_naive_bayes(
@@ -61,9 +61,9 @@ def main():
 
     print('len(class_priors), len(class_probs), len(vocab)')
     print(len(class_priors), len(class_probs), len(vocab))
-    print('len(class_probs["Pizza"]: ', len(class_probs['Pizza']))
+    print('len(class_probs["Pizza"]): ', len(class_probs['Pizza']))
 
-    accuracy = evaluate_accuracy(class_priors, class_probs, vocab, X_test, y_test)
+    accuracy = evaluate_accuracy(class_priors, class_probs, vocab, X_val, y_val)
     print(f'Accuracy: {accuracy:.2f}')
 
     # Read and preprocess data
@@ -77,7 +77,7 @@ def main():
 
     # Run inference
     inference = make_inference(
-        class_priors, class_probs, vocab, 'I eat this product on Saturday evening with 3-4 ingredients, and I have little hot sauce. with wasabi sake', verbose=True)
+        class_priors, class_probs, vocab, 'I eat this with friends, on weekends, with little hot sauce, and at a party', verbose=True)
     print(f'Inference: {inference}')
     # -------------------- New code with Numpy only ---------------
 

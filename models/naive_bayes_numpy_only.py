@@ -1,6 +1,7 @@
 import numpy as np
 import csv
 import re
+import os
 from collections import defaultdict
 from itertools import product
 
@@ -41,22 +42,98 @@ def load_data(data_path):
     return data
 
 
-def vocab_train_test_split(data, test_size=0.2):
-    # Combine all feature columns into text
-    texts = [','.join(row[:-1]) for row in data]
-    labels = [row[-1] for row in data]  # Extract labels
+def save_data_split(indices, train_size, val_size, test_size, filepath='data_split.csv'):
+    """Save train/val/test split indices to a CSV file"""
+    with open(filepath, 'w', newline='') as f:
+        writer = csv.writer(f)
+        writer.writerow(['type', 'index'])  # header
+        
+        # Write train indices
+        train_end = int(len(indices) * train_size)
+        writer.writerows([('train', idx) for idx in indices[:train_end]])
+        
+        # Write validation indices
+        val_end = train_end + int(len(indices) * val_size)
+        writer.writerows([('val', idx) for idx in indices[train_end:val_end]])
+        
+        # Write test indices
+        writer.writerows([('test', idx) for idx in indices[val_end:]])
 
+def load_data_split(filepath='data_split.csv'):
+    """Load train/val/test split indices from CSV file"""
+    train_indices = []
+    val_indices = []
+    test_indices = []
+    
+    with open(filepath, newline='') as f:
+        reader = csv.reader(f)
+        next(reader)  # skip header
+        for row in reader:
+            if row[0] == 'train':
+                train_indices.append(int(row[1]))
+            elif row[0] == 'val':
+                val_indices.append(int(row[1]))
+            else:
+                test_indices.append(int(row[1]))
+    
+    return train_indices, val_indices, test_indices
+
+def train_val_test_split(data, train_size=0.7, val_size=0.15, test_size=0.15, 
+                        split_file='datasets/train_test_split.csv', random_seed=42):
+    """
+    Split data into train/validation/test sets with reproducible splits
+    
+    Args:
+        data: Input data to split
+        train_size: Proportion of data for training
+        val_size: Proportion of data for validation
+        test_size: Proportion of data for testing
+        split_file: Path to save/load split indices
+        random_seed: Seed for reproducibility
+        
+    Returns:
+        (X_train, y_train), (X_val, y_val), (X_test, y_test), vocab
+    """
+    # Verify split proportions
+    assert np.isclose(train_size + val_size + test_size, 1.0), \
+           "Split sizes must sum to 1"
+    
+    # Prepare text data
+    texts = [','.join(row[:-1]) for row in data]
+    labels = [row[-1] for row in data]
     vocab = fit_vectorizer(texts)
     X = transform_vectorizer(texts, vocab)
     y = np.array(labels)
+    
+    # Try to load existing split
+    if os.path.exists(split_file):
+        train_indices, val_indices, test_indices = load_data_split(split_file)
+        print(f"Loaded existing split from {split_file}")
+    else:
+        # Create new random split
+        np.random.seed(random_seed)
+        indices = np.arange(len(X))
+        np.random.shuffle(indices)
+        
+        # Calculate split points
+        train_end = int(len(X) * train_size)
+        val_end = train_end + int(len(X) * val_size)
+        
+        # Save the split for future use
+        save_data_split(indices, train_size, val_size, test_size, split_file)
+        print(f"Created new split and saved to {split_file}")
+        
+        train_indices = indices[:train_end]
+        val_indices = indices[train_end:val_end]
+        test_indices = indices[val_end:]
+    
+    # Split the data
+    X_train, y_train = X[train_indices], y[train_indices]
+    X_val, y_val = X[val_indices], y[val_indices]
+    X_test, y_test = X[test_indices], y[test_indices]
+    
+    return (X_train, y_train), (X_val, y_val), (X_test, y_test), vocab
 
-    # Shuffle and split data
-    indices = np.arange(len(X))
-    np.random.shuffle(indices)
-    split = int((1-test_size) * len(X))
-    X_train, X_test = X[indices[:split]], X[indices[split:]]
-    y_train, y_test = y[indices[:split]], y[indices[split:]]
-    return X_train, X_test, y_train, y_test, vocab
 
 
 def train_naive_bayes(X_train, y_train, vocab, a=1, b=1):
@@ -119,21 +196,21 @@ def predict_class(class_priors, class_probs, feature_vector, verbose=False):
     return best_class
 
 
-def evaluate_accuracy(class_priors, class_probs, vocab, X_test, y_test, verbose=False):
+def evaluate_accuracy(class_priors, class_probs, vocab, X_val, y_val, verbose=False):
     """
     Evaluates accuracy using the unified predict_class function.
     """
     correct = 0
-    for i in range(len(X_test)):
+    for i in range(len(X_val)):
         prediction = predict_class(
             class_priors,
             class_probs,
-            X_test[i],  # Directly use precomputed feature vector
+            X_val[i],  # Directly use precomputed feature vector
             verbose=verbose
         )
-        if prediction == y_test[i]:
+        if prediction == y_val[i]:
             correct += 1
-    return correct / len(y_test)
+    return correct / len(y_val)
 
 
 def make_inference(class_priors, class_probs, vocab, text, verbose=False):
@@ -150,7 +227,7 @@ def make_inference(class_priors, class_probs, vocab, text, verbose=False):
     )
 
 
-def grid_search(X_train, y_train, vocab, X_test, y_test, a_values, b_values):
+def grid_search(X_train, y_train, vocab, X_val, y_val, a_values, b_values):
     best_accuracy = 0
     best_params = (None, None)
 
@@ -159,7 +236,7 @@ def grid_search(X_train, y_train, vocab, X_test, y_test, a_values, b_values):
             X_train, y_train, vocab, a, b)
 
         accuracy = evaluate_accuracy(
-            class_priors, class_probs, vocab, X_test, y_test)
+            class_priors, class_probs, vocab, X_val, y_val)
 
         print(f'a={a}, b={b}, Accuracy={accuracy:.2f}')
 
