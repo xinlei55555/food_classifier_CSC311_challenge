@@ -2,7 +2,7 @@ import json
 import numpy as np
 from models.np_naive_bayes_utils import transform_vectorizer, make_inference
 
-def load_model(model_dir='saved_model'):
+def load_model(model_dir='saved_model', verbose=False):
     """Load trained model components from files"""
     # Load class priors
     with open(f'{model_dir}/class_priors.json', 'r') as f:
@@ -15,13 +15,13 @@ def load_model(model_dir='saved_model'):
     # Load vocabulary
     with open(f'{model_dir}/vocab.json', 'r') as f:
         vocab = json.load(f)
-    
-    print(f"Model loaded from {model_dir}")
+    if verbose:
+        print(f"Model loaded from {model_dir}")
     return class_priors, class_probs, vocab
 
 def predict(text, model_dir='saved_model', verbose=False):
     """Make prediction using saved model"""
-    class_priors, class_probs, vocab = load_model(model_dir)
+    class_priors, class_probs, vocab = load_model(model_dir, verbose)
     return make_inference(class_priors, class_probs, vocab, text, verbose)
 
 if __name__ == '__main__':
