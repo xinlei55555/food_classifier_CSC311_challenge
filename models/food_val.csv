@@ -1,0 +1,297 @@
+id,"Q1: From a scale 1 to 5, how complex is it to make this food? (Where 1 is the most simple, and 5 is the most complex)",Q2: How many ingredients would you expect this food item to contain?,Q3: In what setting would you expect this food to be served? Please check all that apply,Q4: How much would you expect to pay for one serving of this food item?,Q5: What movie do you think of when thinking of this food item?,Q6: What drink would you pair with this food item?,"Q7: When you think about this food item, who does it remind you of?",Q8: How much hot sauce would you add to this food item?,Label
+505318,2,3 or more,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party",$5 ,Cloudy with a chance of meatballs,Soda,"Siblings,Friends",A little (mild),Pizza
+644623,3,5,"Week day dinner,Weekend lunch,Weekend dinner,At a party,Late night snack",3 dollars,Home Alone,Coca Cola,,,Pizza
+620148,2,7,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party",5,Dead Silence,Sprite,"Friends,Strangers",A moderate amount (medium),Pizza
+387155,3,6,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party,Late night snack",12,la la land,water,"Parents,Siblings,Friends,Strangers",A little (mild),Pizza
+630825,3,6,"Week day dinner,At a party",8 dollar,Transformer,Soup,Parents,,Pizza
+627780,3,5,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party,Late night snack",$8 ,Despicable Me,Coke,"Friends,Teachers",,Pizza
+601609,4,10,"Weekend dinner,At a party",6,Spiderman,Diet Coke,Friends,,Pizza
+715814,2,"6 ingredients (tomato sauce, dough, cheese, sausage, mushroom, pepper). Besides these ordinary ones, other ingredients like olives, pineapples, and onions, etc. are also interesting, but overall, the above 6 are the most important (7 as sometimes pineapple is preferred).","Week day lunch,Week day dinner,At a party","About 10 -13 CAD. Usually, it would be a good fit if the price is from 10.99 - 11.99 canadian dollars for a medium size one (that usually I can have for 2-3 meals).","Not exactly movies, but I would prefer to watch some TV series when I am having pizzas. If movies specifically, I may think of cartoon movies or more ""hero""/marvel related ones, like Teenage Mutant Ninja Turtles, movies in marvel series, etc..","All sorts of carbonated drinks(e.g. coca-cola, pepsi, mirinda series drinks, fanta series drinks etc.). Non carbonated drinks are not preferred when I am having pizzas.","Parents,Friends,Teachers",A little (mild),Pizza
+605278,2,"minimum 4 (cheese, tomato sauce, flour, water)","Weekend dinner,At a party,Late night snack",$4 ,Godfather,Coke,"Friends,Teachers,Strangers",A little (mild),Pizza
+722500,3,10,"Weekend lunch,Weekend dinner,At a party,Late night snack",$15 ,Home Alone,coke,"Parents,Siblings,Friends,Teachers",A moderate amount (medium),Pizza
+634328,2,5,"Week day dinner,Weekend lunch,Weekend dinner,At a party,Late night snack",$5 ,Teenage Mutant Ninja Turtles ,Soda,"Parents,Siblings,Friends",,Pizza
+718570,3,5,"Week day lunch,Week day dinner,At a party",15,,coke,"Friends,Strangers",,Pizza
+520828,3,9,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party,Late night snack",$5 ,Teenage Mutant Ninja Turtles,Diet Coke,"Siblings,Friends",A moderate amount (medium),Pizza
+627252,3,8,"Week day dinner,Weekend dinner,At a party",$6 ,Ninja Turtles,Water,"Siblings,Friends",,Pizza
+526131,3,"I would expect it to contain:
+
+* Bread
+
+* Cheese
+
+* Tomato Sauce
+
+* Possibly pepperoni
+
+* Any other toppings","Week day lunch,Weekend lunch,At a party,Late night snack",For one decently sized serving I would expect to pay $10 at most. This is based on how much I usually have to pay.,"I think about movies like ""Holes"" or ""Shrek"", since it reminds me of the movies teachers would put on for us during school events.",I would pair sweet soft drinks like Coke or Pepsi with it. This is because of how it was usually served to me at school events.,"Friends,Teachers",,Pizza
+633350,2,7,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party,Late night snack",$4 ,Ratatouille,Coke,"Friends,Teachers,Strangers",A little (mild),Pizza
+602560,3,"I believe that it depends on what kind of pizza we are talking about but just talking about most conventional and simple pizza, I would say 3 - dough, cheese, and sauce. ","Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party,Late night snack","Again it depends a lot on the kind and size of pizza but talking about the most basic pizza, probably $25 !?",I think about a nice chill movie with Pizza maybe something like Hangover. ,"The only drink I ever have with pizza is coke i.e, Cola. ",Friends,A moderate amount (medium),Pizza
+496858,3,"Typically, the simplest pizza would contain dough, water, yeast, salt, sugar, tomato sauce, and then cheese - around 7 ingredients. Sometimes, we might like to make more complex pizzas with different flavours, like adding more types of cheeses, or adding various toppings like veggies and meats, which would bump up the ingredient count. ","Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party,Late night snack","For one slice of pizza, I would expect about a dollar or two. But for full pizzas, the cost could range anywhere from $12 for a small to $20 for a large. And as always, depending on where you get your pizza (somewhere simple and cheap, or somewhere fancy), these prices might change. ","Home Alone! When the delivery guy delivers a cheese pizza ""Little Nero's Pizza"" through the back door for Kevin, when he gets stuck home alone! ","I love Kombucha, so maybe a mango or citrusy kombucha. Something carbonated!","Parents,Siblings,Friends,Teachers",A little (mild),Pizza
+628559,3,"About 5
+
+ 
+
+Minimum 3 for dough, tomato sauce, and cheese, to at most 7 for toppings.","Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party,Late night snack","$5
+
+ 
+
+$15 for whole piazza)",Avengers 1,Coke,Friends,,Pizza
+715152,3,7,"Weekend lunch,Weekend dinner,At a party,Late night snack",7$,"hangover, or any teen party movies which features a lot of sweet stuff.","carbonated sweet drinks, such as cocacola, pepsi, etc",Friends,,Pizza
+604110,3,4,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party,Late night snack",10,Home Alone,Coca-Cola,"Parents,Friends",,Pizza
+629010,4,6,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party,Late night snack",$4 ,Coraline,Nestea,"Parents,Friends,Teachers,Strangers",A little (mild),Pizza
+605254,2,5,"Week day dinner,At a party,Late night snack",4,,Diet Coke,Friends,A moderate amount (medium),Pizza
+628990,3,5,"Week day lunch,Week day dinner,At a party",$6 ,Life if Pi,Soda,"Parents,Siblings,Friends,Teachers",A little (mild),Pizza
+635533,2,6,"Week day lunch,Late night snack",15 dollars,James Bond 007,Coke,Friends,A little (mild),Pizza
+714901,4,I would expect four to ten.,"Week day lunch,Weekend lunch,At a party","For a single slice, I would pay $5. ",Cloudy with a Chance of Meatballs,Pepsi (or any soda),Friends,A moderate amount (medium),Pizza
+629792,3,"7: flour, salt, yeast, water, oil, sauce, cheese","Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party,Late night snack","$15 (one whole pizza)
+
+ ",the goofy movie,pop,"Parents,Siblings,Friends",,Pizza
+607944,2,5,"Week day dinner,Weekend lunch,At a party,Late night snack",5 dollars,Spiderman,Milk,Friends,,Pizza
+743828,3,10,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party,Late night snack", 4-6 dollars,Mario Movie,Soda Pop,"Friends,Strangers",A moderate amount (medium),Pizza
+629142,3,"I would expect this food item to contain at least 5 ingredients, but it can be more based on toppings you add.","Weekend lunch,At a party",I would expect to pay around $5 dollars for one serving of this food item.,I think of the movie Cloudy with a Chance of Meatballs.,I would pair pop with this food item.,"Parents,Teachers",,Pizza
+409723,2,11,"Week day lunch,At a party,Late night snack",7,Home alone ,Coke,"Parents,Siblings,Teachers",,Pizza
+712143,3,6,"Week day lunch,Week day dinner,At a party",15,Little Italy,Cola,Parents,A little (mild),Pizza
+740568,4,10,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party",$5 ,Little Italy,Coke,"Friends,Teachers,Strangers",,Pizza
+505318,4,5-10,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,Late night snack",$8 ,Superbad,Ayran,"Parents,Siblings",A moderate amount (medium),Shawarma
+602526,4,9,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,Late night snack",$13 ,Hawkeye,orange juice,"Siblings,Friends",A little (mild),Shawarma
+620148,1,5,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party",7,The Invisible Guest,Water,Friends,A little (mild),Shawarma
+521125,5,8,"Week day lunch,Weekend lunch",$9.00 ,The Avengers,Root beer,"Siblings,Friends",,Shawarma
+627780,4,5,Week day lunch,$10 ,1001 Nights,Water,Strangers,A little (mild),Shawarma
+602657,2,10,"Week day lunch,Weekend lunch",10,The Avengers,milk tea,Friends,A little (mild),Shawarma
+715795,3,6,"Week day lunch,Weekend lunch,Late night snack",$8 ,2012,Orange juice,"Parents,Friends,Strangers",A little (mild),Shawarma
+603476,3,9,"Week day lunch,Weekend lunch",10,Cloudy with a Chance of Meatballs,coke,"Parents,Siblings,Friends",A moderate amount (medium),Shawarma
+722431,2,Around 7 key ingredients.,Week day lunch,10$.,The Avengers.,Nestea.,Teachers,,Shawarma
+632896,4,I would expect this food item to contain 5 ingredients.,"Week day lunch,Week day dinner,Late night snack",I would expect 10 dollars for 1 serving of this food.,The Avengers,Coke,"Friends,Strangers",A moderate amount (medium),Shawarma
+627798,4,10,"Week day lunch,Weekend lunch",$10 ,The Avengers,Sprite,"Friends,Strangers",,Shawarma
+514199,2,6,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner",7,,Water,"Teachers,Strangers",A little (mild),Shawarma
+502722,2,"Can vary on how much vegetables and sauces you want, but maybe 7-8 ingredients not including spices.","Week day lunch,Weekend lunch",In Toronto around $7-8 per shawarma.,Advengers 2012 Movie,Water or sprite,"Siblings,Friends",A moderate amount (medium),Shawarma
+616568,2,5,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,Late night snack",15 dollars,i dont know,soda,Friends,A moderate amount (medium),Shawarma
+627505,4,10,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,Late night snack",$8.00 ,The Dictator,Water,Friends,A little (mild),Shawarma
+738379,3,Around 8-10.,"Week day lunch,Week day dinner",$8-$12,Avengers,The Avengers,Friends,A moderate amount (medium),Shawarma
+630389,5,7,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party",17,Avengers 1,Coke,Friends,A moderate amount (medium),Shawarma
+629025,3,6-9,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner",20,The Avengers,Pepsi,Strangers,A moderate amount (medium),Shawarma
+524441,3,7,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner",$10 ,Avengers,Pepsi,Strangers,A little (mild),Shawarma
+634669,4,4,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner",$16.99 ,The Avengers,Wine,Strangers,A moderate amount (medium),Shawarma
+743828,5,8,"Week day lunch,Weekend lunch,Late night snack",12,Avengers,Mango Juice,"Siblings,Friends,Strangers",A lot (hot),Shawarma
+627530,4,8,"Week day lunch,Weekend lunch,At a party",$10 ,Arcane,Ginger Ale,Friends,I will have some of this food item with my hot sauce,Shawarma
+715806,3,5,"Week day lunch,Weekend lunch,Late night snack",10,Aladdin,sprite,Strangers,,Shawarma
+738850,3,8,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,Late night snack",10,The Avengers,Water,"Parents,Strangers",A lot (hot),Shawarma
+603812,3,7,Week day lunch,7 Bucks,Good Will Hunting,Root Beer,"Friends,Strangers",A little (mild),Shawarma
+740568,2,6,"Week day lunch,Weekend lunch",$8 ,Fight Club,Water,Friends,A little (mild),Shawarma
+519638,4,"7 - Pita Bread, Chicken, Lettuce, Pickle, Onion, Rice, Shawarma Sauce","Week day lunch,Week day dinner,Late night snack",$7.25 for one wrap,Drive,Water,"Friends,Strangers",A moderate amount (medium),Shawarma
+627800,3,6-7,"Week day lunch,Weekend lunch,Late night snack",8-12 dollars,Avengers ,"Water, Soda","Teachers,Strangers",A little (mild),Shawarma
+628077,4,15,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,Late night snack",12,The Avengers,Water,"Friends,Strangers",A moderate amount (medium),Shawarma
+605771,4,5,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner",$15 ,,,"Siblings,Friends",,Sushi
+606929,3,about 5,Weekend lunch,10 dollor,drange,coke,Friends,A moderate amount (medium),Sushi
+609789,2,3,"Week day dinner,Weekend dinner",30 dollar,The Truman Show,ice tea,Friends,A lot (hot),Sushi
+389328,4,4,"Week day lunch,Week day dinner,Weekend lunch",$15 ,Kill Bill,Sake,Teachers,A moderate amount (medium),Sushi
+602657,2,4,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,Late night snack",20,Jiro Dreams of Sushi,miso soup,"Parents,Friends",A moderate amount (medium),Sushi
+501893,3,2: rice and sashimi,"Week day dinner,Weekend dinner",CAD15-20,"Little Forest, a Japanese film",tea,"Parents,Friends",A moderate amount (medium),Sushi
+507448,3,"salmon, cucumber","Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party,Late night snack",30,Jiro Dreams of Sushi,Calpis,"Parents,Siblings",,Sushi
+616945,3,3,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner",5,rush hour,water,Siblings,,Sushi
+715814,1,"4 ingredients, dried laver, rice, some sauces (usually 1 sauce), some toppings (usually just 1 kind, sometimes might come to 2 or 3, and as sometimes dried laver is not used, we will give an average of 4 here).","Week day lunch,Weekend lunch,At a party,Late night snack","For a meal of sushi (like dinner), though I never had it at Toronto, I would expect to pay for around 40-50 CAD, and for each piece/plate, depending on the ingredients/number of sushi, it may cost 5-10 normally, and I think this is a fair price.",I might came up with some Japan related movies(like Jiro Dreams of Sushi - this is in fact a documentary)/cartoons(like 一休さん)/TV series (like The Solitary Gourmet).,"I would say some Japanese culture related drinks like their wines (e.g. beer, rice wine, etc.) and tea (green tea more if specifically).","Parents,Friends,Teachers",A moderate amount (medium),Sushi
+519548,2,3,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner",$20 ,Spirited Away,Sake,"Siblings,Friends,Strangers",,Sushi
+601950,3,2,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party",3,Jiro dreams of Sushi,tea,"Parents,Friends",,Sushi
+633234,5,4,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner",$10 ,Oldboy,Water,"Siblings,Friends",A little (mild),Sushi
+606552,4,4,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner",12,Gone Girl,Water,"Friends,Strangers",,Sushi
+411315,4,5,"Week day dinner,Weekend dinner,At a party",9,spirited away,tea,"Parents,Siblings",,Sushi
+601848,2,5,"Week day lunch,Weekend lunch,Weekend dinner",$13 ,John Wick 4,Green tea,"Parents,Siblings,Friends",,Sushi
+602871,3,3,"Week day dinner,Weekend dinner",6 cad,Jiro Dreams of Sushi,Miso soup,"Siblings,Friends",,Sushi
+744468,2,3,"Week day lunch,Weekend dinner",$2 ,Bladerunner,Water,Strangers,,Sushi
+616568,4,2,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party",3 dollars,jiro dreams of sushi,sake,"Parents,Siblings,Friends",A little (mild),Sushi
+840827,5,4,Weekend dinner,$20 ,Romance movie,Water,"Parents,Friends",,Sushi
+614089,4,3,"Weekend dinner,At a party",25 CAD,Lost in Translation,Water,"Siblings,Strangers",,Sushi
+714607,2,4,"Week day lunch,Weekend lunch",$4 ,Pirates of the Carribeans,Matcha,"Siblings,Friends",,Sushi
+604110,4,5,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party,Late night snack",15,"Monsters, Inc.",Juice,Parents,,Sushi
+605254,4,4,"Week day dinner,Weekend lunch,Weekend dinner",10,cloudy with a chance of meatballs,hot green tea,"Parents,Friends",,Sushi
+635533,3,3,Weekend dinner,30,Jiro Dreams of Sushi,rice wine,"Parents,Friends",,Sushi
+630389,4,3,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner",20,Jiro Dreams of Sushi,Tea,"Parents,Siblings,Friends",,Sushi
+712938,4,3,Weekend dinner,17,Spirited Away,Calpis,Strangers,,Sushi
+603388,4,3,"Week day dinner,Weekend lunch,Weekend dinner",20 cad,jiro dreams of sushi,Oolong tea,"Parents,Siblings,Friends",,Sushi
+617774,5,10,"Weekend lunch,Weekend dinner",Anywhere from 5.99 to 25.99,Gran Turismo,Water,"Friends,Teachers,Strangers",,Sushi
+714503,2,2,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party,Late night snack",10,short movie because I eat it fast,soybean milk,"Teachers,Strangers",A little (mild),Sushi
+715806,3,5,"Week day lunch,Late night snack",13,Dreams of Sushi,Water,"Parents,Siblings",,Sushi
+720045,2,5,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner",11,Finding Nemo,Water,"Parents,Siblings,Friends",,Sushi
+611188,2,4,"Week day lunch,Week day dinner,Weekend lunch",12,Spirited Away,Tea,Friends,,Sushi
+629142,1,I would expect this food item to contain around 3 to 4 ingredients.,"Week day lunch,Weekend dinner",I would expect to pay around $14 for this food item.,I think of the movie Jiro Dreams of Sushi.,I would pair tea or juice with this food item.,Friends,,Sushi
+627169,2,5,"Week day dinner,Weekend dinner,At a party,Late night snack",$20 ,The Wolverine,champagne,Parents,,Sushi
+627430,5,9,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party",10,Ponyo,Tea,"Siblings,Friends,Teachers",A little (mild),Sushi
+746750,3,3-10,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party,Late night snack",$2 ,For some reason home alone is the first thing that came to mind,Pepsi,"Friends,Strangers",A little (mild),Pizza
+628558,2,7,"Weekend dinner,At a party,Late night snack",$10 ,Teenage Mutant Ninja Turtles. The turtles are famous for their love of pizza.,tap water or sprite,"Siblings,Friends",A little (mild),Pizza
+411253,3,8,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party,Late night snack",2,teenage mutant ninja turtles,nestea,"Parents,Friends,Teachers",,Pizza
+744484,2,15,"Week day dinner,Weekend dinner,At a party,Late night snack",$4 ,Home Alone,Coke,"Parents,Siblings,Friends",A little (mild),Pizza
+413570,3,5 ingredients,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party,Late night snack",$8 ,Spider-Man 2002 starring Tobey Maguire,Coca-Cola,"Siblings,Friends",,Pizza
+606150,2,Five.,"Week day lunch,Weekend lunch,At a party",8 CAD.,Little Italy.,Coca Cola.,Friends,,Pizza
+607609,3,"8
+
+Flour, sugar, starch, salt, water, tomatoes, mozzarella cheese, olive oil.","At a party,Late night snack",$2.50 ,Interstellar,Soft Drink,Friends,A moderate amount (medium),Pizza
+613209,3,3,"At a party,Late night snack",5,Homealone,Pepsi/Coke,Siblings,A little (mild),Pizza
+508156,3,6,"Week day lunch,Week day dinner,Weekend lunch,At a party",$3 ,"eat, pray, love",Coca-Cola Zero,"Siblings,Friends,Teachers",A little (mild),Pizza
+632909,3,10,"Week day dinner,Weekend dinner,At a party,Late night snack",$7 ,spiderman,canada dry,"Parents,Siblings",,Pizza
+507382,2,4 to 6 ingredients,At a party,5 Dollars,Spiderman 2,Coca Cola,Friends,A little (mild),Pizza
+602845,3,"The number of ingredients in the food is differs and depends on the choice of the customer. However, the food can have between 4 to 10 ingredients.","Weekend lunch,At a party",You can expect to pay between $15 to $30 depending on the size.,"I think of the movie named ""Chef"".",I like Coca Cola and would pair it with this food item.,"Parents,Siblings",A little (mild),Pizza
+519822,3,"dough, flour, tomato sauce, pepperoni, cheese","Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party,Late night snack",$15-18,The Boy and the Herron,Coca-cola,"Friends,Teachers,Strangers",A moderate amount (medium),Pizza
+632299,3,A minimum of 3.,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party,Late night snack",One slice should be no more than 5 dollars. ,Cloudy with a chance of meatballs,Soda,Friends,A little (mild),Pizza
+616634,4,9,"Week day lunch,Week day dinner,Weekend dinner,At a party,Late night snack",$4 ,The Lego Movie,Pepsi,"Friends,Teachers,Strangers",A little (mild),Pizza
+632684,2,4,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party,Late night snack",2,Teenage Mutant Ninja Turtles,Coca Cola,"Parents,Siblings,Friends",,Pizza
+632156,3,"I would expect this food item to contain at least eight ingredients, taking a base recipe for cheese pizza as an example: water, sugar, yeast, oil, salt, flour, tomatoes, cheese.","Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party,Late night snack","Taking one slice as one serving, I would expect to pay $5.",I don't have a movie I think of when I think of pizza.,I would pair coke with pizza.,"Parents,Siblings",,Pizza
+298481,4,7-15,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party,Late night snack",$8-$24,Interstellar,Coke Zero,"Parents,Siblings,Friends",,Pizza
+602533,5,5,"Weekend dinner,At a party",15,Godfather,Coke,"Parents,Friends",A little (mild),Pizza
+716188,3,"Tomato sauce, cheese, ham, pepperoni, pineapple, dough","At a party,Late night snack",$25 for 12 inch.,Italian movie,Coke,"Friends,Teachers",,Pizza
+604132,4,5,"Week day lunch,Weekend lunch,At a party",8,Ratatouille,Soda,"Siblings,Friends",A moderate amount (medium),Pizza
+630044,2,I think this food item 7 ingredients.,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party,Late night snack",I expect to pay 4 dollar with tax.,Cloudy with a chance of meatballs,Diet pepsi.,"Siblings,Friends",,Pizza
+633097,3,8,"Week day lunch,Weekend dinner,At a party",$5 ,American Pie,Cola,"Friends,Teachers",,Pizza
+605290,3,#NAME?,"Week day lunch,Week day dinner,Weekend dinner,At a party",$5/serving,Mean Girls,Sprindrift,Friends,,Pizza
+209691,2,I would expect this food item to contain 5 ingredients.,"Week day lunch,Weekend lunch,At a party",I would expect to pay $10 for one serving of this food item.,I think of spiderman when thinking of this food item.,I would pair with this food item with iced tea.,"Friends,Teachers",,Pizza
+634566,4,8,Weekend dinner,15,The Gentlemen ,Martini Cocktail ,Friends,,Pizza
+625818,1,I would expect 5 ingredients if we make our dough from scratch.,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party,Late night snack",I would expect to pay 3.95$ for a slice.,Teenage mutant ninja turtle,Coca-cola,Friends,A little (mild),Pizza
+632125,3,5,"Week day dinner,Weekend dinner,At a party,Late night snack",$3 ,cloudy with a chance of meatballs,Sprite,"Friends,Teachers",,Pizza
+603189,3,6,"At a party,Late night snack",4,back in action,Diet Coke,"Siblings,Friends,Teachers",A moderate amount (medium),Pizza
+523080,2,4,"Weekend lunch,Weekend dinner,At a party",3 dollars,masterchef,soda,Friends,,Pizza
+604969,2,8,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party,Late night snack",$5 ,Neverending Story,Soda,"Parents,Siblings,Friends",A moderate amount (medium),Pizza
+504548,2,4,"Week day lunch,Weekend lunch,At a party,Late night snack",$5 ,Spider-Man 2,Coca-Cola,"Friends,Teachers",,Pizza
+522477,4,"Around 9 to 10 ingredients, such as wheat flour, oil, water, sugar, salt, yeast, tomato sauce, cheese, and some meats.","Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party",Around $5.,"When thinking of pizza, it would reminder me of Italy, and the first movie that came to mind was Malena.",Coke.,"Siblings,Friends,Teachers,Strangers",,Pizza
+602482,3,"Around 4-5: Dough, sauce, cheese, toppings.
+
+(However, it depends on how you classify ingredients; for instance, you could divide sauce into tomatoes, salt, olive oil, etc).","Weekend lunch,Weekend dinner,At a party",4-6 dollars,"To be honest I can't really think of any movie
+
+But if I have to answer I would say Minions: Rise of Gru",Soda,"Friends,Teachers",,Pizza
+631448,4,At least 4-5 ingredients,"Week day dinner,Weekend lunch,Weekend dinner,At a party","For a whole pizza around 11 dollars, and for one slice I expect around 1.5 dollars",Ratatouille,"Coke/Diet Pepsi, although I would literally have to eat healthy for the next straight 2 weeks.","Parents,Siblings,Friends,Teachers",A lot (hot),Pizza
+619932,2,Around 6-8 depending on the number of toppings.,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party,Late night snack",$5 ,Any movie set in New York,Soda,"Teachers,Strangers",A little (mild),Pizza
+631069,4,10-15,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party,Late night snack",$6 ,Home Alone,Soft drink (coke/pepsi),Friends,A moderate amount (medium),Pizza
+206744,2,"10 ingredients
+
+flour, yeast, water, oil, herbs and spices, pizza sauce, cheese, any 3 toppings","Weekend dinner,At a party",$5 ,Spider-Man 2,Coke,"Parents,Siblings,Friends",,Pizza
+630378,3,7-10,"Week day lunch,Weekend lunch,Weekend dinner,At a party,Late night snack",$5 ,Home Alone 2: Lost in New York,Pepsi,Friends,A moderate amount (medium),Pizza
+494373,1,5-6 ingredients,"Weekend dinner,At a party",15-20,spaghetti with a chance of meatballs,coke zero,"Friends,Strangers",,Pizza
+627638,2,"It really varies depending on the type of pizza and toppings that are chosen, e.g. a simple cheese pizza is usually made up of 3 ingredients (dough, sauce, cheese), whereas a deluxe pizza could have something like 10 ingredients.
+
+Note: this is assuming we are not making anything from scratch, i.e. the pizza dough counts as one ingredient, the sauce counts as one ingredient, and so on.","Week day lunch,Weekend lunch,At a party",About $4.,Teenage Mutant Ninja Turtles.,A soda or iced tea - I personally like to choose iced tea over soda.,"Parents,Siblings",,Pizza
+411117,2,4,"Week day dinner,Weekend dinner,At a party,Late night snack",$6 ,Do The Right Thing,Coca-Cola,"Parents,Siblings",,Pizza
+631436,2,"A simple pizza should have 5-7 ingredients. For clarity on the topic, I will just reply with 6.","Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party","One slice should be $3, unfortunately the school does not see it this way and overcharges us for $4-$5 per slice. For clarity on the question, the answer should be $3. ","I think of the movie ""Cloudy with a Chance of Meatballs"" because I associate pizza with popular Italian cuisine, and meatballs is Italian cuisine. ",I would pair Pepsi with Pizza.,"Parents,Siblings,Friends",,Pizza
+628547,3,9,"Week day dinner,Weekend dinner,At a party,Late night snack",$5 ,Ratatouille,Coca cola,"Friends,Teachers",A little (mild),Pizza
+501513,4,4,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party,Late night snack",15,Friends,Nestea,Friends,A moderate amount (medium),Pizza
+622787,3,5,"Week day lunch,Weekend lunch,At a party",4,spiderman 2,gingerale,"Friends,Teachers",,Pizza
+620745,4,20-15,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party,Late night snack",$10-$15,Diary of a Wimpy Kid,Pop,"Parents,Siblings,Friends,Teachers",,Pizza
+619892,3,10,"Week day lunch,Week day dinner,Weekend dinner,At a party,Late night snack",$16.00 ,Teenage Mutant Ninja Turtles,Pepsi,"Parents,Siblings,Friends",A moderate amount (medium),Pizza
+529289,3,8,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party,Late night snack",$10 ,Step Brothers,Coke,"Parents,Siblings,Friends",A little (mild),Pizza
+601547,2,at least 3,"At a party,Late night snack",$15 each box,horror movie,coke,"Parents,Friends,Strangers",,Pizza
+712670,4,5-10 ingredients.,"Week day dinner,Weekend lunch",7-10 dollors,Aladdin,Coca-Cola,"Parents,Siblings",A moderate amount (medium),Shawarma
+393424,2,7,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner",10,Avengers,Coke,"Siblings,Friends",A moderate amount (medium),Shawarma
+743623,4,"6+ ingredients: meat, wrap, lettuce, tomatoes, condiments such as various sauces (including hot sauce), ","Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party",$15 for a moderately sized shawarma,Ratatouille,"Pop, such as Coke or Pepsi, or Jarritos",Friends,A lot (hot),Shawarma
+632431,2,"chicken. beef, onions, tomato, garlic sauce, hot sauce, lettuce ","Week day lunch,Week day dinner,Weekend lunch,Weekend dinner",9.99$,Avenegers,Sprite,"Parents,Siblings,Strangers",A lot (hot),Shawarma
+306207,3,8-12,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner",$12 max,Pursuit of Happyness,Water,"Parents,Siblings,Friends,Strangers",A moderate amount (medium),Shawarma
+634468,2,5,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner",15,The Avengers,Soda/Pop,"Friends,Strangers",A little (mild),Shawarma
+5978,3,7,"Week day lunch,Weekend lunch,Late night snack",10 dollars ,Nothing,Soda,"Friends,Strangers",A moderate amount (medium),Shawarma
+629700,3,5+,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party",$13 ,The Dictator,Water.,Friends,,Shawarma
+522890,5,It can vary depending on what is needed inside the shawarma. From as little as 2-3 to much more like 6. ,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner",8$-12$,The Avengers. Action movies.,"Sprite or any soft drinks as such. Coke, Pepsi, etc.","Parents,Siblings",A lot (hot),Shawarma
+605452,4,12,"Week day dinner,Weekend dinner",20,The Avengers,Ayran,"Friends,Strangers",A moderate amount (medium),Shawarma
+630250,3,"meat, bread, vegetables, sauce, spices, fries.","At a party,Late night snack",13 to 15 dollars,deadpool & wolverine,Sprite,"Friends,Strangers",A moderate amount (medium),Shawarma
+634764,2,10,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party,Late night snack",$10 ,The Avengers,Iced Tea,"Siblings,Friends",A lot (hot),Shawarma
+629156,3,10,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,Late night snack",10,The Avengers,Mint lemonade,Friends,A moderate amount (medium),Shawarma
+723931,3,10,"Week day lunch,Weekend lunch",15 dollars,indiana jones,coke,Friends,A little (mild),Shawarma
+625349,4,5,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner",15,madagascar,Water,"Friends,Strangers",A moderate amount (medium),Shawarma
+522967,4,8,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,Late night snack",15,avengers,coca cola,"Siblings,Friends",A lot (hot),Shawarma
+626754,4,"Rice, Chicken, Garlic Sauce, some spices. So 4-8 ingredients.","Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party",$12 ,The Avengers,Water,"Parents,Friends",A little (mild),Shawarma
+631583,4,7,"Week day lunch,Weekend lunch,Late night snack",12,Lawrence of Arabia,Coke,"Friends,Strangers",A moderate amount (medium),Shawarma
+616713,2,12,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party,Late night snack",8 CAD,I don't,Coke,"Parents,Friends",A moderate amount (medium),Shawarma
+491374,1,2-10,"Week day lunch,Weekend lunch",8-13 Canadian dollars,,Ginger Ale,Strangers,A little (mild),Shawarma
+409930,3,7 or 8,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner",$10 to $20,probably something with a middle eastern setting,water,Strangers,,Shawarma
+716188,2,"Lettuce, TOmatoes, Oniuons, Toum sauce, Tahini sauce, Black olives, cheese, and chicken.","Week day lunch,Week day dinner,Weekend lunch,Weekend dinner",$11 ,Middle Eastern Movies,no drink,"Friends,Strangers",A little (mild),Shawarma
+603007,4,11 ,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,Late night snack",15 dollars,The Dictator,Iced Tea,Friends,A moderate amount (medium),Shawarma
+630006,3,4,Week day lunch,$20 ,Deadpool,Sprite,Strangers,A moderate amount (medium),Shawarma
+632868,3,Considering the different amounts of toppings this could be at least 8 for a classical style.,"Week day lunch,Weekend lunch",One serving would expected for me to pay around $15.  ,Deadpool & Wolverine is the movie that comes to mind. This is because of the ending scene where they get this food after their battle. ,I would pair the drink Pepsi with this food. ,"Friends,Strangers",A lot (hot),Shawarma
+206487,2,Seven,"Week day lunch,Weekend lunch,At a party",Six dollar,"*********
+Avengers 
+*********",Coke,Strangers,A moderate amount (medium),Shawarma
+543739,4,10,"Week day dinner,Weekend dinner",10,The Avengers,Coke,Friends,A little (mild),Shawarma
+634650,3,5,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner",$13 ,Avengers,Coke,Friends,A moderate amount (medium),Shawarma
+494103,2,10,"Week day lunch,Week day dinner,Late night snack",15 dollars,The avengers,Coca cola,"Parents,Siblings,Friends",A moderate amount (medium),Shawarma
+603189,4,7,"Week day lunch,Week day dinner,Late night snack",10,Mandoob,Ayran,"Parents,Friends",A moderate amount (medium),Shawarma
+606857,3,6,"Week day lunch,Weekend lunch",6 CAD,The Dictator,Lemon Iced Tea,"Siblings,Friends",A little (mild),Shawarma
+630416,4,At least 5,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party,Late night snack",$5?,"Ratatouille, because the rat cooks food and this is food ",Water :),"Friends,Teachers,Strangers",I will have some of this food item with my hot sauce,Shawarma
+742226,2,10,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party,Late night snack",10,The Avengers (Post-Credit Scene),Juice,"Friends,Strangers",A moderate amount (medium),Shawarma
+206744,3,"7
+
+pita, meat, herbs and spices, sauces, 3 veggies",Weekend lunch,$10 ,The Avengers,Mango juice,"Siblings,Friends",A moderate amount (medium),Shawarma
+630378,4,8,Week day lunch,$10 ,The Avengers,Pepsi,Strangers,A lot (hot),Shawarma
+631142,4,8 Ingredients,"Week day lunch,Week day dinner,Weekend lunch",$12 per serving,The Avengers,Sprite,"Parents,Siblings,Friends,Strangers",A moderate amount (medium),Shawarma
+621982,2,3,Weekend dinner,12 dollars,The Avengers,coke,Friends,A moderate amount (medium),Shawarma
+609617,5,"4 ingredients: Marinated Chicken, Pita Bread, French Fries, Garlic","Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party,Late night snack",Around 6$ would be fair value,Avengers,Pepsi,"Parents,Siblings,Friends",,Shawarma
+634430,4,6,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party",$8.00 ,The Avengers,Pepsi,"Parents,Siblings",A little (mild),Shawarma
+617379,3,7,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party,Late night snack",$9 ,The Avengers,Root Beer,"Parents,Siblings,Friends",A moderate amount (medium),Shawarma
+619892,4,15,"Week day lunch,Weekend lunch",$12.00 ,Chef,lemonade,Friends,A lot (hot),Shawarma
+631046,3,7,Week day lunch,12,How to lose a guy in 10 days,Pepsi,"Parents,Friends,Strangers",A lot (hot),Shawarma
+628736,4,I expect it to contain 5 to 8 ingredients. Some people might like to have hummus or tahini sauce or falafel in this food item.,"Week day lunch,Weekend lunch","I wouldn’t pay more than a few hundred turkish lira, unless inflation increases the cost of this food item.","I don’t usually think of any movie when having this food item, but, after using google to refresh my memory, I would say Avengers because of the post-credits scene.","I would have milk and water (in separate cups of course). Milk in case it gets too spicy, and water in case it is too salty.","Friends,Strangers",A lot (hot),Shawarma
+629285,4,4,Weekend dinner,$11 ,scary movie,milk tea,Friends,,Sushi
+524485,2,6,"Week day lunch,Weekend lunch,At a party,Late night snack",40,Finding Nemo,Coke,Friends,,Sushi
+638838,5,7,At a party,$25.00 ,Big Hero 6,Water,Strangers,,Sushi
+87783,4,At least 4 ingredients ,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner",$40 for dinner. ,Kill Bill,Coca-Cola or Beer,"Parents,Strangers",A little (mild),Sushi
+744091,2,"Depends but around 2+. I would say the average is around 4 with the 2 ingredients for the filling, 1 for rice and 1 for the wrap.","Week day lunch,Week day dinner,Weekend lunch,Weekend dinner",Mabye each sushi cost 2$?,The Wolverine,Water,Parents,,Sushi
+630928,2,3,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner",13,Kodoku No Gurume,Barley tea,Parents,,Sushi
+607286,3,10,"Weekend lunch,Weekend dinner",$15 ,Godzilla,Milk,"Friends,Strangers",A moderate amount (medium),Sushi
+617462,2,5,Weekend dinner,$20 ,OldBoy,Sake,Parents,,Sushi
+634690,4,6,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party,Late night snack",$18 ,Monsters Inc.,Water,Siblings,,Sushi
+632909,4,4,"Week day dinner,Weekend dinner",$20 ,John Wick,green tea,"Parents,Siblings,Friends",,Sushi
+522877,4,8 ingredients ,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party,Late night snack",$20 ,Barbie (2021),Water,"Siblings,Friends,Strangers",A little (mild),Sushi
+605148,5,3,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party",One sushi roll: $15,Monsters Inc.,"Water, green tea","Siblings,Friends",,Sushi
+716142,5,"5 - Avacoda, cucumber, rice, fish, seaweed",Week day lunch,$10 ,Kill Bill,Green Tea,"Parents,Siblings",A lot (hot),Sushi
+629156,1,4,"Week day lunch,Weekend dinner,Late night snack",15,Jiro Dreams of Sushi,Green tea,Parents,,Sushi
+631909,4,3-5,"Week day dinner,Weekend dinner",$5 ,Rush Hour 2,Green Tea,"Parents,Siblings,Friends",A moderate amount (medium),Sushi
+616634,1,4,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party,Late night snack",7,The Wolverine,Water,"Parents,Siblings,Friends",,Sushi
+609116,4,5,"Week day dinner,Weekend dinner,At a party",$10 ,Your Name,tea,Friends,A little (mild),Sushi
+626789,3,5,"Week day lunch,Weekend lunch",14,,diet coke,Friends,,Sushi
+629758,4,5,"Week day dinner,Weekend dinner",around 17 dollars,Weathering with You,tea,"Parents,Siblings",,Sushi
+491374,3,2-3,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party",10-25 Canadian dollars,,Hot Tea,"Parents,Friends",,Sushi
+618700,2,3,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party,Late night snack",5,John Wick: Chapter 4,tea,"Parents,Siblings,Friends",,Sushi
+716188,2,Raw seafood and rice,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,Late night snack",$15 ,Anime,tea,"Friends,Strangers",,Sushi
+604132,2,2,"Week day dinner,Weekend dinner",12,Anime,Water,"Parents,Siblings",,Sushi
+741428,4,6,"Weekend dinner,At a party",$13 ,,,Parents,,Sushi
+631221,3,Between 2 and 7.,"Week day dinner,Weekend dinner,At a party","$12
+
+ ",Your name,Tea,Friends,,Sushi
+601983,3,5,"Week day dinner,Weekend dinner,At a party",13,Django Unchained,Tea,"Parents,Siblings,Friends",A little (mild),Sushi
+632868,5,Typical style would consist of 6-7 ingredients. ,"Weekend lunch,Weekend dinner,At a party",One serving would be expected around $6. ,Finding Nemo was the first movie in my mind. ,I would have water to pair with this food. ,"Siblings,Friends",,Sushi
+419835,5,6,"Week day dinner,Weekend dinner",14,Big Hero 6,Water,Friends,,Sushi
+634566,5,5,"Week day dinner,Weekend dinner",20,Shanghai Noon,Sake ,"Parents,Friends",A moderate amount (medium),Sushi
+629615,5,regular california roll: 5,"Week day lunch,Weekend lunch,At a party,Late night snack","1 roll: =1.5 dollars
+
+8 pieces: 12 dollars",The Breakfast Club,Jasmine tea,"Friends,Strangers",,Sushi
+630823,5,7,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner",14,The Intern,Coke,"Parents,Friends",,Sushi
+504548,1,3,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party",$10 ,The Meg (2018),Soy Sauce,"Parents,Siblings,Strangers",,Sushi
+523461,4,5,"Week day lunch,Weekend lunch,At a party,Late night snack",$6 ,Rush Hour 2,Sake,Friends,A moderate amount (medium),Sushi
+312640,2,"3-44 Ingredients, fish (or any filling),rice, seaweed, and optional topping","Week day dinner,Weekend lunch,Weekend dinner",16,Rush Hour series ,Yuzu the alcoholic drink,"Parents,Siblings",,Sushi
+739254,4,Around 5 ingredients,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner",10 dollars,Ultraman: Rising,Water,Strangers,A little (mild),Sushi
+621555,3,"Depends on if it's sashimi or sushi rolls or anything else. Sushi rolls, 4+, sashimi, 2-3. Once again, depends on what you're getting.","Week day dinner,Weekend dinner","If it's sashimi, 20$ ish, give or take a few. If it's just a roll, a serving of 6 rolls is about 8-10 dollars for an average roll.",None.,Tea and water.,"Parents,Siblings",,Sushi
+296589,3,"Rice, dried seaweed, and raw fish","Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party",Around $5-15,Pearl Harbour,"Water, sake","Parents,Friends,Teachers,Strangers",,Sushi
+601737,3,"rice, vinegar, fish, soy sauce, wasabi. so 5 ingredients.","Week day lunch,Weekend lunch,Weekend dinner",15 dollars,last samurai,green tea,Parents,,Sushi
+631902,4,4,"Week day lunch,Weekend lunch,Weekend dinner,Late night snack",$20 ,Shark Tale,Water,"Parents,Siblings",A little (mild),Sushi
+312320,5,"wasabi
+
+dikon radish
+
+ginger
+
+raw fish or different kinds but mostly salmon & tuna
+
+lettuce
+
+seaweed salad
+
+soy sauce","Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party,Late night snack",sushi small order = 6 pieces with meat not tofu = $12,"I think of Ninja movies with I think of sushi, especially Japanese Anime ninja movies","I think of sake, suju and Coke Cola for sushi food item","Parents,Siblings,Friends,Teachers",,Sushi
+631141,2,5,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner",$10 ,Monsters Inc.,Jasmine tea,"Parents,Siblings,Friends",,Sushi
+401586,4,5,"Week day dinner,Weekend dinner,At a party",10,The Spy Next Door,tea,Parents,,Sushi
+388729,1,arounds 10,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party,Late night snack",15-20 dollar,"It sounds like you're referring to the movie Ratatouille! It’s a Pixar animated film about a rat named Remy who dreams of becoming a great chef despite being a rodent in a profession dominated by humans. The story is set in Paris, and it beautifully blends themes of passion, creativity, and perseverance in the culinary world. Let me know if this is the one you're thinking of!",fruit tea,"Parents,Siblings,Friends,Teachers,Strangers",,Sushi
+607073,2,5-6,"Week day lunch,Weekend lunch",15-Oct,anime movie,just water,"Parents,Friends,Strangers",,Sushi
+624443,4,6,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner",$10 ,Kill Bill,Tea,Friends,,Sushi
+609179,2,5,Weekend dinner,20,Tokyo Drift,milk,Strangers,A moderate amount (medium),Sushi
+627638,3,I would expect it to range from 2 (e.g. salmon nigiri) to 8 (e.g. a complex maki roll) ingredients.,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner","Assuming a serving means a small box of sushi for one person, around $12-$16.",No movies come to mind.,Tea or water.,"Parents,Siblings,Friends",,Sushi
+609556,4,9,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party",14 dollar,Fast and Furious Tokyo Drift,Ocha,"Parents,Siblings,Friends",,Sushi
+602234,5,"7 total. Ingredients include rice, soy sauce, wasabi, nori, and 3 additional variety of filling. Filling can include avocado, cucumber, meat, etc.","Week day dinner,Weekend dinner,At a party","For one serving of sushi, I expect to pay like $16. It's so good yet so expensive :(","When eating sushi, I think of the movie ""Shrek 2"".",I would pair bubble tea with sushi. Mmmmm... boba...,"Siblings,Friends,Strangers",,Sushi
+741592,2,3,"Week day lunch,Weekend lunch,At a party",1.49,Your Name,Water,Strangers,,Sushi
+628547,5,5,"Week day lunch,Week day dinner,Weekend lunch,Late night snack",$20 ,Monsters Inc,Tea,"Siblings,Friends,Strangers",A little (mild),Sushi
+617379,5,4,"Week day dinner,Weekend lunch,Weekend dinner",$10 ,Kung fu panda,Mango juice,"Parents,Siblings",A little (mild),Sushi
+619892,5,8,"Week day lunch,Weekend lunch,Late night snack",$15.00 ,"Monsters, Inc.",Pepsi,"Parents,Siblings,Friends,Strangers",A moderate amount (medium),Sushi
+529289,4,4,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party",$25 ,Kill Bill,Iced Tea,"Parents,Siblings,Friends,Strangers",,Sushi
+617178,2,"It has a minimum of two ingredients, and on average I would say it has five ingredients.","Week day lunch,Weekend lunch,At a party",10 dollars,I think of the anime Food Wars,Nothing in particular– probably just water,Parents,,Sushi
+628736,4,This food item typically contains 3 to 5 ingredients. Seaweed is almost always one of the ingredients.,"Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,Late night snack",I would expect to pay at most 100 yen per individual piece.,"I think of Cars 2 when thinking of this food item. This is because of the scene where Tow Mater mistakes wasabi, a popular topping for this food item, for pistachio ice cream, with comical results.",Milk. Especially if eaten with wasabi to put out any flames from the spiciness.,"Parents,Siblings,Friends,Strangers",,Sushi

@@ -1,0 +1,1 @@
+{'alpha': 0.01, 'l2_lambda': 0.35, 'hidden_sizes': (128, 64), 'batch_size': 32, 'patience': 10, 'accuracy': 0.8658536585365854}
