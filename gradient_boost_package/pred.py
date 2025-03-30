@@ -1,12 +1,19 @@
+import csv
 import json
 import numpy as np
 from number_cleaning import process_string 
-from onehot_cleaning import process_multihot, process_onehot
-from drink_cleaning import process_drink, parse_common_drinks
+from onehot_cleaning import process_multihot, process_onehot, process_multihot_non_matrix
+from drink_cleaning import process_drink, parse_common_drinks, parse_drinks_list
+from inference_naive_bayes import predict
 
 chaining = False
 
-def predict_single(tree, x):
+q3_options = ['Week day lunch', 'Week day dinner', 'Weekend lunch', 'Weekend dinner', 'At a party', 'Late night snack']
+q7_options = ['Friends', 'Teachers', 'Siblings', 'Parents', 'None', 'Strangers']
+q8_options = ['None', 'A little (mild)', 'A moderate amount (medium)', 'A lot (hot)',
+              'I will have some of this food with my hot sauce']
+
+def predict_gb_single(tree, x):
     """Traverse a single gradient boost tree and return its output."""
     node = 0
     while tree["children_left"][node] != -1:
@@ -16,25 +23,38 @@ def predict_single(tree, x):
             node = tree["children_left"][node]
         else:
             node = tree["children_right"][node]
-    return np.array(tree["value"][node]).squeeze()
+    return tree["value"][node]
 
-def predict(X):
+def predict_gb_multiple(X):
     """Predict using the extracted model."""
-    X = np.array(X)
-    learning_rate = model_data["learning_rate"]
-    n_classes = model_data["n_classes"]
+    global gb_data
+
+    n_classes = gb_data["n_classes"]
+    classes = gb_data["classes"]    
+    tree_list = gb_data["tree_list"]
     
-    # Initialize predictions
-    predictions = np.zeros((X.shape[0], n_classes))
+    init_bias = [0.33652173913043476, 0.34695652173913044, 0.3191304347826087]
+    predictions = np.full((X.shape[0], n_classes), init_bias)
+
+    for c in range(n_classes):
+        for i, t in enumerate(tree_list[c]):
+            for j, x in enumerate(X):
+                predictions[j][c] += gb_data["learning_rate"] * predict_gb_single(t, x)
     
-    # Aggregate predictions from all trees
-    for tree_data in model_data["trees"]:
-        for i, x in enumerate(X):
-            predictions[i] += learning_rate * predict_single(tree_data, x)
+    print(predictions)
+
+    #f = lambda x: classes[x]
+    res = np.argmax(predictions, axis=1)
+    res = res.tolist()
+    for i in range(len(res)):
+        res[i] = classes[res[i]]
     
-    return np.argmax(predictions, axis=1)
+    return res
 
 def parse_data(data):
+    """
+    Parses data from the CSV file and returns matrix X.
+    """
     common_drinks = parse_common_drinks(input_simple_file="../clean/common_drinks.simple")
     drinks_list = parse_drinks_list(input_simple_file="../clean/common_drinks.simple")
     process_string_vectorized = np.vectorize(process_string)
@@ -52,14 +72,13 @@ def parse_data(data):
         q9 = np.zeros((data.shape[0],))
         q10 = np.zeros((data.shape[0],))
         q11 = np.zeros((data.shape[0],))
-    t = data[:, 9]   # Label
 
     for i in range(data.shape[0]):
         naive_bayes_q = ''
         for j in range(1, 9):
             naive_bayes_q += data[i][j]
             naive_bayes_q += '.'
-        _, logits = predict(naive_bayes_q, model_dir='../saved_model', verbose=False)
+        _, logits = predict(naive_bayes_q, model_dir='.', verbose=False)
         if chaining:
             q9[i] = logits['Pizza']
             q10[i] = logits['Shawarma']
@@ -89,13 +108,41 @@ def parse_data(data):
         columns.extend([np.reshape(q10, (q10.shape[0], 1))])
         columns.extend([np.reshape(q11, (q11.shape[0], 1))])
 
-    return np.hstack(columns), t
+    return np.hstack(columns)
 
-if __name__ == '__main__':
+def get_data(data_path):
+    """
+    Gets and parses data from the CSV file.
+    """
+    file = open(data_path, mode='r', encoding='utf-8')
+    reader = csv.reader(file)
+    data = np.array(list(reader))
+    file.close()
+
+    data = data[1:, :]  # Remove first question row
+    return parse_data(data)
+
+def predict_all(csv_filename):
     if chaining:
         raise NotImplementedError
-    # Load JSON model
-    with open("saved_model/gbc_model.json", "r") as f:
-        model_data = json.load(f)
+    
+    # Load gradient boost model
+    global gb_data
+    with open("gbc_model.json", "r") as f:
+        gb_data = json.load(f)
 
-    print("hello")
+    X = get_data(csv_filename)
+    return predict_gb_multiple(X)
+
+if __name__ == '__main__':
+    predictions = predict_all('../data/test.csv')
+    with open('../data/test_targets.csv', mode='r', encoding='utf-8') as file:
+        reader = csv.reader(file)
+        targets = list(reader)
+    
+    correct = 0
+    for i in range(len(targets)):
+        if targets[i][0] == predictions[i]:
+            correct += 1
+    print(float(correct) / len(targets))
+    #print(predictions)
