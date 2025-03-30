@@ -74,7 +74,7 @@ def main():
 
     # Read and preprocess data
     data = load_data(data_path)
-    unwanted_indexes = [0, 1, 2, 4]
+    unwanted_indexes = [] #[0, 1, 2, 4]
     data = np.delete(data, unwanted_indexes, axis=1)
 
     (X_train, y_train), (X_val, y_val), (X_test, y_test), vocab = train_val_test_split(data, split_file='datasets/train_test_split.csv')
@@ -91,7 +91,12 @@ def main():
 
     # Evaluate
     accuracy = evaluate_accuracy(class_priors, class_probs, vocab, X_val, y_val)
-    print(f'Validation Accuracy: {accuracy:.2f}')
+    print(f'Validation Accuracy: {accuracy:.3f}')
+
+    # Evaluate final accuracy for test set
+    accuracy = evaluate_accuracy(class_priors, class_probs, vocab, X_test, y_test)
+    print(f'Testing Accuracy: {accuracy: .3f}')
+    print(X_test[0:5], 'X_test[0:5]')
 
     # Example inference
     inference, _ = make_inference(
