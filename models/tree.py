@@ -1,16 +1,19 @@
+# Run this file from the models folder
+# cd models; python3 tree.py
 import csv
 from typing import Tuple
 import numpy as np
 from sklearn.tree import DecisionTreeClassifier
-from sklearn import tree as treeViz
-import graphviz
+import matplotlib.pyplot as plt
 import sys
+import json
 sys.path.append('../')
 from clean.number_cleaning import process_string
 from clean.onehot_cleaning import process_multihot_non_matrix, process_onehot
 from clean.drink_cleaning import process_drink, parse_common_drinks, parse_drinks_list
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.tree import plot_tree#, DecisionTreeClassifier
+from sklearn.tree import plot_tree, DecisionTreeClassifier, DecisionTreeRegressor
+from sklearn.ensemble import GradientBoostingClassifier
 from inference_naive_bayes import predict
 
 q3_options = ['Week day lunch', 'Week day dinner', 'Weekend lunch', 'Weekend dinner', 'At a party', 'Late night snack']
@@ -22,14 +25,30 @@ X_train, t_train = None, None
 X_val, t_val     = None, None
 X_test, t_test   = None, None
 
+# These flags enable/disable Naive Bayes chaining and
+# choose one of the models: decision tree, random forest, gradient boosting classifier.
+chaining = True # enables/disables Naive Bayes chaining
+decision_tree = False
+random_forest = False
+gradient_boost = True
+train = True # if False, builds the tree from the known hyperparameters
+save_tree_flag = True
+
 def get_data(data_path): 
     file = open(data_path, mode='r', encoding='utf-8')
     reader = csv.reader(file)
     data = np.array(list(reader))
     file.close()
 
+
     data = data[1:, :]  # Remove first question row
     train_data, val_data, test_data = split_data(data)
+
+    #import pandas as pd 
+    #test_data = test_data[:, -1]
+    #df = pd.DataFrame(test_data)
+    #df.to_csv("test_targets.csv", index=False)
+    #exit()
 
     global X_train, t_train, X_val, t_val, X_test, t_test
     X_train, t_train = parse_data(train_data)
@@ -75,9 +94,11 @@ def parse_data(data):
     q6 = data[:, 6]  # Drink? (open ended, drink)
     q7 = data[:, 7]  # Who does it remind you of? (multi select)
     q8 = data[:, 8]  # How much hot sauce? (single select)
-    q9 = np.zeros((data.shape[0],))
-    q10 = np.zeros((data.shape[0],))
-    q11 = np.zeros((data.shape[0],))
+
+    if chaining:
+        q9 = np.zeros((data.shape[0],))
+        q10 = np.zeros((data.shape[0],))
+        q11 = np.zeros((data.shape[0],))
     t = data[:, 9]   # Label
 
     for i in range(data.shape[0]):
@@ -86,9 +107,10 @@ def parse_data(data):
             naive_bayes_q += data[i][j]
             naive_bayes_q += '.'
         _, logits = predict(naive_bayes_q, model_dir='../saved_model', verbose=False)
-        q9[i] = logits['Pizza']
-        q10[i] = logits['Shawarma']
-        q11[i] = logits['Sushi']
+        if chaining:
+            q9[i] = logits['Pizza']
+            q10[i] = logits['Shawarma']
+            q11[i] = logits['Sushi']
 
     q1p = q1.astype(np.int64)
     q2p = process_string_vectorized(q2)
@@ -109,24 +131,21 @@ def parse_data(data):
     columns.extend(np.hsplit(q6phot, q6phot.shape[1]))
     columns.extend(np.hsplit(q7p, q7p.shape[1]))
     columns.extend(np.hsplit(q8p, q8p.shape[1]))
-    columns.extend([np.reshape(q9, (q9.shape[0], 1))])
-    columns.extend([np.reshape(q10, (q10.shape[0], 1))])
-    columns.extend([np.reshape(q11, (q11.shape[0], 1))])
+    if chaining:
+        columns.extend([np.reshape(q9, (q9.shape[0], 1))])
+        columns.extend([np.reshape(q10, (q10.shape[0], 1))])
+        columns.extend([np.reshape(q11, (q11.shape[0], 1))])
 
     return np.hstack(columns), t
 
 def build_tree(criterion, d, s):
-    return RandomForestClassifier(criterion=criterion, max_depth=d, min_samples_split=s)
-    #return DecisionTreeClassifier(criterion=criterion, max_depth=d, min_samples_split=s)
-
-def visualize_tree(tree):
-    dot_data = treeViz.export_graphviz(tree,
-                                       max_depth=3,
-                                       class_names=["pizza", "shawarma", "sushi"],
-                                       filled=True,
-                                       rounded=True)
-    graphviz.Source(dot_data).view(cleanup=True)
-
+    # select the model here
+    if decision_tree:
+      return DecisionTreeClassifier(criterion=criterion, max_depth=d, min_samples_split=s)
+    if random_forest:  
+        return RandomForestClassifier(criterion=criterion, max_depth=d, min_samples_split=s)
+    if gradient_boost:
+        return GradientBoostingClassifier(criterion=criterion, max_depth=d, min_samples_split=s)
 
 def score_models(max_depths,
                  min_samples_split,
@@ -165,7 +184,10 @@ def score_models(max_depths,
 
 def grid_search(data) -> Tuple[int, int, str, DecisionTreeClassifier]:
     # Hyperparameters values to try in our grid search
-    criterions = ['entropy', 'gini', 'log_loss']
+    if not gradient_boost:
+        criterions = ['entropy', 'gini', 'log_loss']
+    else:
+        criterions = ['squared_error', 'friedman_mse']
     max_depths = [1, 5, 10, 15, 20, 25, 30, 50, 100]
     min_samples_split = [2, 4, 8, 16, 32, 64, 128, 256, 512, 1024]
 
@@ -186,27 +208,99 @@ def grid_search(data) -> Tuple[int, int, str, DecisionTreeClassifier]:
 
     return d, s, criterion, tree
 
-def train_decision_tree():
+
+def convert_regressor(regressor):
+    """
+    Converts one of the estimators inside the gradient boosting classifier to JSON.
+    """
+    tree = regressor.tree_
+
+    v = tree.value.tolist()
+    for i in range(len(v)):
+        v[i] = np.squeeze(v[i]).max()
+
+    return {
+        "children_left": tree.children_left.tolist(),
+        "children_right": tree.children_right.tolist(),
+        "feature": tree.feature.tolist(),
+        "threshold": tree.threshold.tolist(),
+        "value": v
+    }
+
+def save_gbc(gbc):
+    """
+    Writes gradient boosting classifier to JSON file.
+    """
+
+    tree_list = []
+    # 3 classes: pizza, sushi, shawarma
+    for c in range(0, 3):
+        trees = [convert_regressor(est) for est in gbc.estimators_[c]]
+        tree_list.append(trees)
+    
+    model_data = {
+        "n_classes": gbc.n_classes_,
+        "learning_rate": gbc.learning_rate,
+        "classes": gbc.classes_.tolist(),
+        "tree_list": tree_list,
+        "init_bias": gbc.init_.prior,
+    }
+
+    # Save as JSON
+    with open("gbc_model.json", "w") as f:
+        json.dump(model_data, f)
+
+def train_tree():
     # print(X.shape) # (1644, 66)
     # print(t.shape) # (1644, )
     d, s, criterion, tree = grid_search((X_train, X_val, t_train, t_val))
     print(d, s, criterion)
     print(tree.score(X_train, t_train))
     print(tree.score(X_val, t_val))
-    print(tree.score(X_test, t_test))
+    print(tree.score(X_test, t_test)) 
 
     return tree
 
 def build_best_tree():
     # print(X.shape) # (1644, 66)
     # print(t.shape) # (1644, )
-    d, s, criterion = 15, 8, 'entropy'
+    d, s, criterion = 25, 128, 'squared_error'
     tree = build_tree(criterion, d, s)
     tree.fit(X_train, t_train)
 
-    print(tree.score(X_test, t_test))
+    np.set_printoptions(threshold=np.inf)
+    print(tree.predict_proba(X_test))
 
+    print(tree.score(X_test, t_test))
     return tree
+
+def save_tree(tree):
+    if decision_tree or random_forest:
+        raise NotImplementedError
+
+    save_gbc(tree)
+
+def test_classifier(classifier):
+    estimators = classifier.estimators_
+    #for c in range(3):
+    #    for j in range(len(estimators)):
+    #        d = estimators[j][0] # d = decision tree regressor
+    #        print(d)
+    tree = estimators[0][0].tree_
+    
+    print({
+        "children_left": tree.children_left.tolist(),
+        "children_right": tree.children_right.tolist(),
+        "feature": tree.feature.tolist(),
+        "threshold": tree.threshold.tolist(),
+        "value": tree.value.tolist(),
+        "classes": classifier.classes_.tolist(),
+    })
+
+    
+    plot_tree(estimators[0][0], fontsize=7)
+    plt.show()
+    
 
 #def make_prediction():
 #    visualize_tree(tree)
@@ -217,5 +311,11 @@ if __name__ == '__main__':
 
     get_data('../data/cleaned_data_combined_modified.csv')
 
-    tree = train_decision_tree()    
-    #tree = build_best_tree()
+    if train:
+        tree = train_tree()
+    else:
+        tree = build_best_tree()
+    
+    #if save_tree_flag:
+    #    save_tree(tree)
+    # test_classifier(tree)
