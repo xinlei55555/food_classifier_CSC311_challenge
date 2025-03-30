@@ -12,8 +12,6 @@ def tokenize(text):
     return re.findall(r'\b\w+\b', text.lower())
 
 # Vectorizer functions
-
-
 def fit_vectorizer(data):
     vocabulary = set()
     for row in data:
