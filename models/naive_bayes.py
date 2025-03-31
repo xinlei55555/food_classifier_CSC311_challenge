@@ -40,7 +40,8 @@ def train_naive_bayes(data_path):
     model = MultinomialNB()
     model.fit(X_train, y_train)
 
-    # 
+    # Predict the labels for the  
+
     # Predict the labels for the validation set
     y_pred = model.predict(X_val)
 
