@@ -30,18 +30,35 @@ def train_naive_bayes(data_path):
 
     # Split the data into training and testing sets
     X_train, X_test, y_train, y_test = train_test_split(
-        X_vectorized, y, test_size=0.2, random_state=42)
+        X_vectorized, y, test_size=0.30, random_state=42)
+    
+    # split into testing and validation
+    X_test, X_val, y_test, y_val = train_test_split(
+        X_test, y_test, test_size=0.50, random_state=42)
 
     # Create and train the Naive Bayes classifier
     model = MultinomialNB()
     model.fit(X_train, y_train)
+
+    # Predict the labels for the training set
+    y_train_pred = model.predict(X_train)
+    # Evaluate the model
+    accuracy = accuracy_score(y_train, y_train_pred)
+    print(f'Training Accuracy: {accuracy:.5f}')  
+
+    # Predict the labels for the validation set
+    y_pred = model.predict(X_val)
+
+    # Evaluate the model
+    accuracy = accuracy_score(y_val, y_pred)
+    print(f'Validation Accuracy: {accuracy:.5f}') # 0.86235
 
     # Predict the labels for the test set
     y_pred = model.predict(X_test)
 
     # Evaluate the model
     accuracy = accuracy_score(y_test, y_pred)
-    print(f'Accuracy: {accuracy:.2f}')
+    print(f'Testing Accuracy: {accuracy:.5f}') # 0.85830
 
     return model
 
