@@ -15,6 +15,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.tree import plot_tree, DecisionTreeClassifier, DecisionTreeRegressor
 from sklearn.ensemble import GradientBoostingClassifier
 from inference_naive_bayes import predict
+from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 
 q3_options = ['Week day lunch', 'Week day dinner', 'Weekend lunch', 'Weekend dinner', 'At a party', 'Late night snack']
 q7_options = ['Friends', 'Teachers', 'Siblings', 'Parents', 'None', 'Strangers']
@@ -31,7 +32,7 @@ chaining = True # enables/disables Naive Bayes chaining
 decision_tree = False
 random_forest = False
 gradient_boost = True
-train = True # if False, builds the tree from the known hyperparameters
+train = False # if False, builds the tree from the known hyperparameters
 save_tree_flag = True
 
 def get_data(data_path): 
@@ -264,14 +265,19 @@ def train_tree():
 def build_best_tree():
     # print(X.shape) # (1644, 66)
     # print(t.shape) # (1644, )
-    d, s, criterion = 25, 128, 'squared_error'
+    d, s, criterion = 5, 2, 'squared_error'
     tree = build_tree(criterion, d, s)
     tree.fit(X_train, t_train)
 
     np.set_printoptions(threshold=np.inf)
-    print(tree.predict_proba(X_test))
-
     print(tree.score(X_test, t_test))
+    
+    labels = np.unique(t_test)
+    c = confusion_matrix(tree.predict(X_test), t_test, labels=labels)
+    disp = ConfusionMatrixDisplay(confusion_matrix=c, display_labels=labels)
+    disp.plot()
+    plt.show()
+
     return tree
 
 def save_tree(tree):

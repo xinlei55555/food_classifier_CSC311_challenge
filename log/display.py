@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-file_path = "random_forest_no_chaining.csv"
+file_path = "gradient_boost_no_chaining.csv"
 df = pd.read_csv(file_path)
 
 # Ensure expected columns exist
@@ -20,7 +20,7 @@ sns.set(style="whitegrid")
 
 # Plot accuracy for different criterion
 # for criterion in df["criterion"].unique():
-criterion = 'log_loss'
+criterion = 'friedman_mse'
 subset = df[df["criterion"] == criterion]
 sns.lineplot(
     data=subset,
@@ -32,6 +32,6 @@ sns.lineplot(
 
 plt.xlabel("Max Depth")
 plt.ylabel("Validation Accuracy")
-plt.title(f"Random Forest Validation Accuracy vs. Max Depth (Criterion = {criterion})")
+plt.title(f"Gradient Boosting Validation Accuracy vs. Max Depth (Criterion = {criterion})")
 plt.legend(title="Min Samples Split")
 plt.show()
