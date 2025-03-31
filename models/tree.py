@@ -14,7 +14,7 @@ from clean.drink_cleaning import process_drink, parse_common_drinks, parse_drink
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.tree import plot_tree, DecisionTreeClassifier, DecisionTreeRegressor
 from sklearn.ensemble import GradientBoostingClassifier
-from inference_naive_bayes import predict
+from inference_naive_bayes import predict, predict_smart
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 
 q3_options = ['Week day lunch', 'Week day dinner', 'Weekend lunch', 'Weekend dinner', 'At a party', 'Late night snack']
@@ -103,11 +103,12 @@ def parse_data(data):
     t = data[:, 9]   # Label
 
     for i in range(data.shape[0]):
-        naive_bayes_q = ''
-        for j in range(1, 9):
-            naive_bayes_q += data[i][j]
-            naive_bayes_q += '.'
-        _, logits = predict(naive_bayes_q, model_dir='../saved_model', verbose=False)
+        # naive_bayes_q = ''
+        # for j in range(1, 9):
+        #     naive_bayes_q += data[i][j]
+        #     naive_bayes_q += '.'
+        naive_bayes_data = data[i]
+        _, logits = predict_smart(naive_bayes_data, model_dir='../saved_model', verbose=False)
         if chaining:
             q9[i] = logits['Pizza']
             q10[i] = logits['Shawarma']

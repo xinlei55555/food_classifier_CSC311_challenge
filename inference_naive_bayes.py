@@ -1,6 +1,10 @@
 import json
 import numpy as np
+
+import clean.drink_cleaning
 from models.np_naive_bayes_utils import transform_vectorizer, make_inference
+
+common_drinks = clean.drink_cleaning.parse_common_drinks("clean/common_drinks.simple")
 
 def load_model(model_dir='saved_model', verbose=False):
     """Load trained model components from files"""
@@ -23,6 +27,16 @@ def predict(text, model_dir='saved_model', verbose=False):
     """Make prediction using saved model"""
     class_priors, class_probs, vocab = load_model(model_dir, verbose)
     return make_inference(class_priors, class_probs, vocab, text, verbose)
+
+def predict_smart(data: list, model_dir='saved_model', verbose=False):
+    """Make prediction using saved model"""
+    class_priors, class_probs, vocab = load_model(model_dir, verbose)
+    data[6] = clean.drink_cleaning.process_drink(data[6], common_drinks)
+    del data[0]
+    del data[1]
+    del data[2]
+    del data[4]
+    return make_inference(class_priors, class_probs, vocab, ",".join(data), verbose)
 
 if __name__ == '__main__':
     # Example usage
