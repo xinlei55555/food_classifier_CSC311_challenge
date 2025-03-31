@@ -98,7 +98,13 @@ def train_val_test_split(data, train_size=0.7, val_size=0.15, test_size=0.15,
     
     # Prepare text data
     texts = [','.join(row[:-1]) for row in data]
+
+    # Assuming the last column is the label
     labels = [row[-1] for row in data]
+
+    # Remove labels from data
+    texts  = [texts[idx].replace(labels[idx], '[LABEL]') for idx in range(len(texts))]
+
     vocab = fit_vectorizer(texts)
     X = transform_vectorizer(texts, vocab)
     y = np.array(labels)

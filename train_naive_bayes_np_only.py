@@ -60,7 +60,7 @@ def main():
     processed_column_6 = np.array([process_drink(x, common_drinks) for x in column_6])
     data[:, 6] = processed_column_6
 
-    unwanted_indexes = []  # [0, 1, 2, 4]
+    unwanted_indexes = [] # [0, 1, 2, 4]
     data = np.delete(data, unwanted_indexes, axis=1)
 
     (X_train, y_train), (X_val, y_val), (X_test, y_test), vocab = train_val_test_split(data, split_file='datasets/train_test_split.csv')
@@ -74,6 +74,10 @@ def main():
 
     # Save the trained model
     save_model(class_priors, class_probs, vocab)
+
+    # Evaluate
+    accuracy = evaluate_accuracy(class_priors, class_probs, vocab, X_train, y_train)
+    print(f'Validation Accuracy: {accuracy:.5f}')
 
     # Evaluate
     accuracy = evaluate_accuracy(class_priors, class_probs, vocab, X_val, y_val)
