@@ -27,6 +27,8 @@ import random
 import numpy as np
 import json
 import os
+
+from clean.drink_cleaning import parse_common_drinks, process_drink
 from models.np_naive_bayes_utils import grid_search, train_naive_bayes, make_inference, load_data, train_val_test_split, evaluate_accuracy
 
 def save_model(class_priors, class_probs, vocab, model_dir='saved_model'):
@@ -74,7 +76,15 @@ def main():
 
     # Read and preprocess data
     data = load_data(data_path)
-    unwanted_indexes = [0, 1, 2, 4]
+
+    data = np.array(data)
+
+    column_6 = data[:, 6]
+    common_drinks = parse_common_drinks('clean/common_drinks.simple')
+    processed_column_6 = np.array([process_drink(x, common_drinks) for x in column_6])
+    data[:, 6] = processed_column_6
+
+    unwanted_indexes = []  # [0, 1, 2, 4]
     data = np.delete(data, unwanted_indexes, axis=1)
 
     (X_train, y_train), (X_val, y_val), (X_test, y_test), vocab = train_val_test_split(data, split_file='datasets/train_test_split.csv')
