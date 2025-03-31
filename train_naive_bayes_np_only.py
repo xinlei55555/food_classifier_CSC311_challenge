@@ -5,6 +5,7 @@ import numpy as np
 import json
 import os
 from models.np_naive_bayes_utils import grid_search, train_naive_bayes, make_inference, load_data, train_val_test_split, evaluate_accuracy
+from clean.drink_cleaning import process_drink, parse_common_drinks
 
 def save_model(class_priors, class_probs, vocab, model_dir='saved_model'):
     """Save trained model components to files"""
@@ -21,7 +22,7 @@ def save_model(class_priors, class_probs, vocab, model_dir='saved_model'):
     with open(f'{model_dir}/vocab.json', 'w') as f:
         json.dump(vocab, f)
     
-    print(f"Model saved to {model_dir}")
+    print(f"Model saved to {os.path.join(os.getcwd(), model_dir)}")
 
 def load_model(model_dir='saved_model'):
     """Load trained model components from files"""
@@ -51,13 +52,21 @@ def main():
 
     # Read and preprocess data
     data = load_data(data_path)
-    unwanted_indexes = [] #[0, 1, 2, 4]
+
+    data = np.array(data)
+
+    column_6 = data[:, 6]
+    common_drinks = parse_common_drinks('clean/common_drinks.simple')
+    processed_column_6 = np.array([process_drink(x, common_drinks) for x in column_6])
+    data[:, 6] = processed_column_6
+
+    unwanted_indexes = []  # [0, 1, 2, 4]
     data = np.delete(data, unwanted_indexes, axis=1)
 
     (X_train, y_train), (X_val, y_val), (X_test, y_test), vocab = train_val_test_split(data, split_file='datasets/train_test_split.csv')
     
     # Grid search for best (a, b) values
-    a_range = b_range = range(0, 20, 2)
+    a_range = b_range = range(0, 10, 1)
     a, b = grid_search(X_train, y_train, vocab, X_val, y_val, a_range, b_range)
     print(f'Best (a, b) values: ({a}, {b})')
 
@@ -68,11 +77,11 @@ def main():
 
     # Evaluate
     accuracy = evaluate_accuracy(class_priors, class_probs, vocab, X_val, y_val)
-    print(f'Validation Accuracy: {accuracy:.3f}')
+    print(f'Validation Accuracy: {accuracy:.5f}')
 
     # Evaluate final accuracy for test set
     accuracy = evaluate_accuracy(class_priors, class_probs, vocab, X_test, y_test)
-    print(f'Testing Accuracy: {accuracy: .3f}')
+    print(f'Testing Accuracy: {accuracy: .5f}')
     print(X_test[0:5], 'X_test[0:5]')
 
     # Example inference

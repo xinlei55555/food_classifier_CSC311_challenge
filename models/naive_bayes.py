@@ -40,7 +40,12 @@ def train_naive_bayes(data_path):
     model = MultinomialNB()
     model.fit(X_train, y_train)
 
-    # 
+    # Predict the labels for the training set
+    y_train_pred = model.predict(X_train)
+    # Evaluate the model
+    accuracy = accuracy_score(y_train, y_train_pred)
+    print(f'Training Accuracy: {accuracy:.5f}')  
+
     # Predict the labels for the validation set
     y_pred = model.predict(X_val)
 
