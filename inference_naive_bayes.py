@@ -22,6 +22,7 @@ def load_model(model_dir='saved_model'):
 def predict(text, model_dir='saved_model', verbose=False):
     """Make prediction using saved model"""
     class_priors, class_probs, vocab = load_model(model_dir)
+    print(text)
     return make_inference(class_priors, class_probs, vocab, text, verbose)
 
 if __name__ == '__main__':

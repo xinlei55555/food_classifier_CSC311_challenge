@@ -5,7 +5,9 @@ import os
 from collections import defaultdict
 from itertools import product
 
-# Tokenization function
+from sklearn.metrics import confusion_matrix
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 
 def tokenize(text):
@@ -203,10 +205,11 @@ def predict_class(class_priors, class_probs, feature_vector, verbose=False):
     return best_class, logits
 
 
-def evaluate_accuracy(class_priors, class_probs, vocab, X_val, y_val, verbose=False):
+def evaluate_accuracy(class_priors, class_probs, vocab, X_val, y_val, verbose=False, confusion_matrix=False):
     """
     Evaluates accuracy using the unified predict_class function.
     """
+    predictions = []
     correct = 0
     for i in range(len(X_val)):
         prediction, _ = predict_class(
@@ -215,9 +218,24 @@ def evaluate_accuracy(class_priors, class_probs, vocab, X_val, y_val, verbose=Fa
             X_val[i],  # Directly use precomputed feature vector
             verbose=verbose
         )
+        predictions.append(prediction)
         if prediction == y_val[i]:
             correct += 1
+    
+    if confusion_matrix:
+        plot_confusion_matrix(y_val, predictions, np.unique(y_val))
     return correct / len(y_val)
+
+def plot_confusion_matrix(y_true, y_pred, labels, filename='confusion_matrix.png'):
+    cm = confusion_matrix(y_true, y_pred, labels=labels)
+    plt.figure(figsize=(6, 5))
+    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=labels, yticklabels=labels)
+    plt.xlabel('Predicted Label')
+    plt.ylabel('True Label')
+    plt.title('Confusion Matrix')
+    plt.savefig(filename)  # Save the figure
+    file_path = os.path.join('saved_confusion_matrix_naive_bayes', )
+    print(f"Confusion matrix saved as {filename}")
 
 
 def make_inference(class_priors, class_probs, vocab, text, verbose=False):
