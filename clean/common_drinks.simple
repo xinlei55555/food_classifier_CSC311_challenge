@@ -4,14 +4,6 @@ coke=cola,coke,coca cola,cola,coca-cola,cocacola,cococola,coke-cola,coke cola
 mango=mango
 barbican=barbican
 none=none,no,nothing
-<<<<<<< HEAD
-sparkling=sparkling
-boba=boba,bubble,pearl,bubble-tea
-milk-shake=milk shake,milk-shake,milkshake
-smoothie=smoothie
-dr-pepper=dr pepper,dr-pepper,drpepper
-yoghurt=laban,yoghurt,yogurt,leban,leyban,lassi,ayran
-=======
 sparkling=sparkling,soda water,soda-water,tonic,tonic-water,club-soda,club
 boba=boba,bubble,pearl,bubble-tea
 kombucha=kombucha,kombucha tea,fermented tea
@@ -19,68 +11,42 @@ milk-shake=milk shake,milk-shake,milkshake
 smoothie=smoothie
 dr-pepper=dr pepper,dr-pepper,drpepper
 yoghurt=laban,yoghurt,yogurt,leban,leyban,lassi,ayran,kefir,kéfir
->>>>>>> main
 yakult=yakult
 crush=crush
 root-beer=root beer,rootbeer,root-beer
 ramune=ramune,ramun
-<<<<<<< HEAD
-coffee=coffee,cofee,coffe
-iced-tea=iced tea,iced-tea,icedtea,ice-tea,icetea,ice tea,arizona,nestea,nes tea, nes-tea,fuze
-gingerale=gingerale,ginger-ale,ginger ale,canada
-tea=green tea,greentea,green-tea,tea,matcha,ocha
-=======
 coffee=coffee,cofee,coffe,espresso,expresso,esspresso,cappuccino,cappucino,cappaccino,latte,cafe latte,caffè latte,caffelatte,americano,macchiato,latte macchiato,mocha,mochaccino,mocaccino,frappuccino,frappe,starbucks frappe
 iced-tea=iced tea,iced-tea,icedtea,ice-tea,icetea,ice tea,arizona,nestea,nes tea, nes-tea,fuze
 gingerale=gingerale,ginger-ale,ginger ale,canada
 tea=green tea,greentea,green-tea,tea,matcha,ocha,manzanilla,chamomile,peppermint
->>>>>>> main
 saporo=saporo
 soy-sauce=soy,soy-sauce,soysauce,soya,soya-sauce,soyasauce
 yuzu=yuzu
 jarritos=jarrito,jarritos
 baijiu=baijiu
 water=water
-<<<<<<< HEAD
-juice=juice
-wine=wine
-beer=beer,barley
-gatorade=gatorade,powerade,gator ade, power ade
-=======
-juice=juice,apple,cider,orange,grape,canberry,fruit,pineapple,pomegranate,pomegranite,coconut,aguas frescas,aguas-frescas,fruit punch,fruit-punch,hawaiian punch,sherry,xeres,schnapps,schnaps,lemonade
+juice=juice,apple,cider,orange,grape,cranberry,canberry,fruit,pineapple,pomegranate,pomegranite,coconut,aguas frescas,aguas-frescas,fruit punch,fruit-punch,hawaiian punch,sherry,xeres,schnapps,schnaps,lemonade
 coconut=coconut,coconut-water,cocunut
 wine=wine,prosecco,rose,port,porto,port wine,portwine
 beer=beer,barley
 gatorade=gatorade,powerade,gator ade, power ade
 horchata=horchata,orchata,orxata
->>>>>>> main
 soju=soju
 sake=sake
 soup=soup,misosoup,miso soup,miso-soup
 calpis=calpis
 milk=milk,dairy
-<<<<<<< HEAD
-lemonade=lemonade
-=======
 egg-nog=egg nog,egg-nog
->>>>>>> main
 pepsi=pepsi,pepsi
 soda=soda,pop,soft,pops,sodapop,soda-pop
 sprite=sprite
 fanta=fanta
 mountain-dew=mountain-dew,mountain dew,mountaindew,mountain dews,mountaindews
-<<<<<<< HEAD
-alcohol=alcohol,alcoholic,cocktail,rum,whiskey,gin
-=======
 alcohol=alcohol,alcoholic,cocktail,rum,whiskey,gin,arak,arrack,brandy,brandi,brandies,cognac,armagnac,calvados,mezcal,tequila,vodka,bourbon,burbon,scotch,scotch whisky,scotch whiskey,rye,rye whiskey,rye-whiskey,absinthe,ouzo,pastis,aperol,campari,vermouth,mead,honey wine,honeywine
->>>>>>> main
 # Catch end
 none=any
 diet-coke=diet
 juice=fruit
 tea=green
 sparkling=carbonated,carbonate
-<<<<<<< HEAD
-=======
 energy-drink=energy drink,energy drinks,red bull,monster,rockstar,sting,guarana,burn
->>>>>>> main

@@ -20,6 +20,20 @@ def parse_common_drinks(input_simple_file: str = "common_drinks.simple") -> Orde
     return drink_dict
 
 
+def parse_drinks_list(input_simple_file: str = "common_drinks.simple") -> OrderedDict[str, str]:
+    """
+    Parses the common_drinks.simple file and returns a list of all drinks in the file.
+    """
+    drink_list = []
+    with open(input_simple_file, "r", encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if not line or line.startswith("#") or line.split("#", 1)[0].strip() == "":
+                continue
+            drink, _ = line.split("=", 1)
+            drink_list.append(drink)
+    return drink_list
+
 def process_drink(input_str: str, common_drinks: OrderedDict, default: str = "none") -> str:
     """
     1. Replace all forward slashes with a space.
@@ -80,7 +94,6 @@ def process_drink(input_str: str, common_drinks: OrderedDict, default: str = "no
     # or just the original text
     print(f"WARNING: no possible matches at all for '{text}', returning default '{default}'")
     return default
-
 
 # -------------------------------------------------------------------
 # Example Usage

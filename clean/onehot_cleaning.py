@@ -16,6 +16,15 @@ def process_multihot(input_string: str, elements: list[str]):
     onehot = np.diag(multihot)
     return onehot
 
+def process_multihot_non_matrix(input_string: str, elements: list[str]):
+    """
+    Converts a comma-separated string into a multi-hot encoded vector without matrix expansion.
+    >>> process_multihot("apple,banana", ["apple", "orange", "banana", "grape"])
+    array([1, 0, 1, 0])
+    """
+    input_list = list(item.strip() for item in input_string.split(","))
+    multihot = np.isin(elements, input_list).astype(int)
+    return multihot
 
 def process_onehot(input_string: str, elements: list[str]):
     """
