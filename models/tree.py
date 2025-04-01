@@ -29,10 +29,10 @@ X_test, t_test   = None, None
 # These flags enable/disable Naive Bayes chaining and
 # choose one of the models: decision tree, random forest, gradient boosting classifier.
 chaining = True # enables/disables Naive Bayes chaining
-decision_tree = False
+decision_tree = True
 random_forest = False
-gradient_boost = True
-train = False # if False, builds the tree from the known hyperparameters
+gradient_boost = False
+train = True # if False, builds the tree from the known hyperparameters
 save_tree_flag = True
 
 def get_data(data_path): 
@@ -40,7 +40,6 @@ def get_data(data_path):
     reader = csv.reader(file)
     data = np.array(list(reader))
     file.close()
-
 
     data = data[1:, :]  # Remove first question row
     train_data, val_data, test_data = split_data(data)
@@ -244,8 +243,7 @@ def save_gbc(gbc):
         "n_classes": gbc.n_classes_,
         "learning_rate": gbc.learning_rate,
         "classes": gbc.classes_.tolist(),
-        "tree_list": tree_list,
-        "init_bias": gbc.init_.prior,
+        "tree_list": tree_list
     }
 
     # Save as JSON
@@ -287,26 +285,44 @@ def save_tree(tree):
 
     save_gbc(tree)
 
-def test_classifier(classifier):
-    estimators = classifier.estimators_
-    #for c in range(3):
-    #    for j in range(len(estimators)):
-    #        d = estimators[j][0] # d = decision tree regressor
-    #        print(d)
-    tree = estimators[0][0].tree_
-    
-    print({
+def save_decision_tree(decision_tree):
+    tree = decision_tree.tree_
+
+    v = tree.value.tolist()
+
+    model_data = {
         "children_left": tree.children_left.tolist(),
         "children_right": tree.children_right.tolist(),
         "feature": tree.feature.tolist(),
         "threshold": tree.threshold.tolist(),
-        "value": tree.value.tolist(),
-        "classes": classifier.classes_.tolist(),
-    })
+        "value": v
+    }
+
+    with open("decision_model.json", "w") as f:
+        json.dump(model_data, f)
+
+def test_classifier(classifier):
+    #estimators = classifier.estimators_
+    #for c in range(3):
+    #    for j in range(len(estimators)):
+    #        d = estimators[j][0] # d = decision tree regressor
+    #        print(d)
+    # tree = estimators[0][0].tree_
+    
+    # print({
+    #     "children_left": tree.children_left.tolist(),
+    #     "children_right": tree.children_right.tolist(),
+    #     "feature": tree.feature.tolist(),
+    #     "threshold": tree.threshold.tolist(),
+    #     "value": tree.value.tolist(),
+    #     "classes": classifier.classes_.tolist(),
+    # })
 
     
-    plot_tree(estimators[0][0], fontsize=7)
-    plt.show()
+    #plot_tree(estimators[0][0], fontsize=7)
+    print(classifier.tree_)
+    #plot_tree(classifier, fontsize=7)
+    #plt.show()
     
 
 #def make_prediction():
@@ -323,6 +339,6 @@ if __name__ == '__main__':
     else:
         tree = build_best_tree()
     
-    #if save_tree_flag:
-    #    save_tree(tree)
-    # test_classifier(tree)
+    if save_tree_flag:
+        save_decision_tree(tree)
+    test_classifier(tree)
