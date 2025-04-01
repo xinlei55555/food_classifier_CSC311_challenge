@@ -227,15 +227,15 @@ def evaluate_accuracy(class_priors, class_probs, vocab, X_val, y_val, verbose=Fa
     return correct / len(y_val)
 
 def plot_confusion_matrix(y_true, y_pred, labels, filename='confusion_matrix.png'):
+    file_path = os.path.join('models', 'naive_bayes_utils', 'saved_confusion_matrix_naive_bayes', filename)
     cm = confusion_matrix(y_true, y_pred, labels=labels)
     plt.figure(figsize=(6, 5))
     sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=labels, yticklabels=labels)
     plt.xlabel('Predicted Label')
     plt.ylabel('True Label')
-    plt.title('Confusion Matrix')
-    plt.savefig(filename)  # Save the figure
-    file_path = os.path.join('saved_confusion_matrix_naive_bayes', )
-    print(f"Confusion matrix saved as {filename}")
+    plt.title('Confusion Matrix ')
+    plt.savefig(file_path)  # Save the figure
+    print(f"Confusion matrix saved as {file_path}")
 
 
 def make_inference(class_priors, class_probs, vocab, text, verbose=False):
