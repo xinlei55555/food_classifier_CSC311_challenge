@@ -38,7 +38,7 @@ def predict_smart(data: list, model_dir='saved_model', verbose=False):
     data[6] = clean.drink_cleaning.process_drink(data[6], common_drinks)
     unwanted_indexes = [0, 1, 2, 4]
     np.delete(data, unwanted_indexes, axis=0)
-    return make_inference(class_priors, class_probs, vocab, ",".join(data), verbose)
+    return make_inference(class_priors, class_probs, vocab, " ".join(data), verbose)
 
 if __name__ == '__main__':
     # Example usage
@@ -54,5 +54,12 @@ if __name__ == '__main__':
 
     text = 'I eat this with friends, on weekends, with no hot sauce, and at dinner, and it makes me think of tokyo drift.'
     prediction, logits = predict(text, verbose=True)
+    print(f"\nFinal Prediction: {prediction}")
+    print(f"Logits: {logits}")
+
+    # data = ['I eat this with friends, on weekends, with little hot sauce, and at a party', 'sdlkfj'] 
+    data = ['716549','3','6',"Week day lunch,At a party,Late night snack",'5','Cloudy with a Chance of Meatballs','Coke','Friends','A little (mild)']
+    print(" ".join(data), "-> aa",)
+    prediction, logits = predict_smart(data, verbose=True)
     print(f"\nFinal Prediction: {prediction}")
     print(f"Logits: {logits}")
