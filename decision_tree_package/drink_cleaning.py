@@ -87,12 +87,12 @@ def process_drink(input_str: str, common_drinks: OrderedDict, default: str = "no
 
     # If we found something with best similarity, return that
     if best_key is not None and best_score > 0.5:
-        print(f"WARNING: failed to find good match for '{text}', returning '{best_key}' instead by similarity")
+        # print(f"WARNING: failed to find good match for '{text}', returning '{best_key}' instead by similarity")
         return common_drinks[best_key]
 
     # If there's absolutely nothing (e.g., empty dictionary?), return some fallback
     # or just the original text
-    print(f"WARNING: no possible matches at all for '{text}', returning default '{default}'")
+    # print(f"WARNING: no possible matches at all for '{text}', returning default '{default}'")
     return default
 
 # -------------------------------------------------------------------
