@@ -5,9 +5,7 @@ import os
 from collections import defaultdict
 from itertools import product
 
-from sklearn.metrics import confusion_matrix
-import matplotlib.pyplot as plt
-import seaborn as sns
+# Tokenization function
 
 
 def tokenize(text):
@@ -99,7 +97,7 @@ def train_val_test_split(data, train_size=0.7, val_size=0.15, test_size=0.15,
            "Split sizes must sum to 1"
     
     # Prepare text data
-    texts = [' '.join(row[:-1]) for row in data]
+    texts = [','.join(row[:-1]) for row in data]
 
     # Assuming the last column is the label
     labels = [row[-1] for row in data]
@@ -205,11 +203,10 @@ def predict_class(class_priors, class_probs, feature_vector, verbose=False):
     return best_class, logits
 
 
-def evaluate_accuracy(class_priors, class_probs, vocab, X_val, y_val, verbose=False, confusion_matrix=False):
+def evaluate_accuracy(class_priors, class_probs, vocab, X_val, y_val, verbose=False):
     """
     Evaluates accuracy using the unified predict_class function.
     """
-    predictions = []
     correct = 0
     for i in range(len(X_val)):
         prediction, _ = predict_class(
@@ -218,24 +215,9 @@ def evaluate_accuracy(class_priors, class_probs, vocab, X_val, y_val, verbose=Fa
             X_val[i],  # Directly use precomputed feature vector
             verbose=verbose
         )
-        predictions.append(prediction)
         if prediction == y_val[i]:
             correct += 1
-    
-    if confusion_matrix:
-        plot_confusion_matrix(y_val, predictions, np.unique(y_val))
     return correct / len(y_val)
-
-def plot_confusion_matrix(y_true, y_pred, labels, filename='confusion_matrix.png'):
-    file_path = os.path.join('models', 'naive_bayes_utils', 'saved_confusion_matrix_naive_bayes', filename)
-    cm = confusion_matrix(y_true, y_pred, labels=labels)
-    plt.figure(figsize=(6, 5))
-    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=labels, yticklabels=labels)
-    plt.xlabel('Predicted Label')
-    plt.ylabel('True Label')
-    plt.title('Confusion Matrix ')
-    plt.savefig(file_path)  # Save the figure
-    print(f"Confusion matrix saved as {file_path}")
 
 
 def make_inference(class_priors, class_probs, vocab, text, verbose=False):

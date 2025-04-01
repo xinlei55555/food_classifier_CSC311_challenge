@@ -1,26 +1,3 @@
-# ------------------- Original Code with sklearn ----------------
-# from models.naive_bayes import train_naive_bayes, make_inference
-# from sklearn.feature_extraction.text import CountVectorizer
-# import pandas as pd
-
-# data_path = 'data/cleaned_data_combined_modified.csv'
-# model = train_naive_bayes(data_path)
-
-# # Create a CountVectorizer instance
-# vectorizer = CountVectorizer()
-
-# # Fit the vectorizer on the training data
-# data = pd.read_csv(data_path, delimiter=',', quotechar='"')
-# X = data.iloc[:, :-1]
-# X = X.fillna('')
-# vectorizer.fit(X.apply(lambda row: ' '.join(row.values.astype(str)), axis=1))
-# # accuracy 0.86
-
-# inference = make_inference(
-#     model, vectorizer, 'I love eating this product on Saturday evening with 3-4 ingredients, and I have little hot sauce')
-# print(f'Inference: {inference}')
-# ------------------- Original Code with sklearn ----------------
-
 # -------------------- New code with Numpy only ---------------
 import csv
 import random
@@ -28,8 +5,8 @@ import numpy as np
 import json
 import os
 
-from clean.drink_cleaning import parse_common_drinks, process_drink
 from models.np_naive_bayes_utils import grid_search, train_naive_bayes, make_inference, load_data, train_val_test_split, evaluate_accuracy
+from clean.drink_cleaning import process_drink, parse_common_drinks
 
 def save_model(class_priors, class_probs, vocab, model_dir='saved_model'):
     """Save trained model components to files"""
@@ -46,7 +23,7 @@ def save_model(class_priors, class_probs, vocab, model_dir='saved_model'):
     with open(f'{model_dir}/vocab.json', 'w') as f:
         json.dump(vocab, f)
     
-    print(f"Model saved to {model_dir}")
+    print(f"Model saved to {os.path.join(os.getcwd(), model_dir)}")
 
 def load_model(model_dir='saved_model'):
     """Load trained model components from files"""
@@ -87,10 +64,14 @@ def main():
     unwanted_indexes = []  # [0, 1, 2, 4]
     data = np.delete(data, unwanted_indexes, axis=1)
 
+    print(data[0], 'data[0]')
+
     (X_train, y_train), (X_val, y_val), (X_test, y_test), vocab = train_val_test_split(data, split_file='datasets/train_test_split.csv')
     
+    print(list(X_train[0]), 'X_train[0:5]')
+    # exit()
     # Grid search for best (a, b) values
-    a_range = b_range = range(0, 20, 2)
+    a_range = b_range = range(0, 10, 1)
     a, b = grid_search(X_train, y_train, vocab, X_val, y_val, a_range, b_range)
     print(f'Best (a, b) values: ({a}, {b})')
 
@@ -100,8 +81,17 @@ def main():
     save_model(class_priors, class_probs, vocab)
 
     # Evaluate
+    accuracy = evaluate_accuracy(class_priors, class_probs, vocab, X_train, y_train)
+    print(f'Validation Accuracy: {accuracy:.5f}')
+
+    # Evaluate
     accuracy = evaluate_accuracy(class_priors, class_probs, vocab, X_val, y_val)
-    print(f'Validation Accuracy: {accuracy:.2f}')
+    print(f'Validation Accuracy: {accuracy:.5f}')
+
+    # Evaluate final accuracy for test set
+    accuracy = evaluate_accuracy(class_priors, class_probs, vocab, X_test, y_test, confusion_matrix=True)
+    print(f'Testing Accuracy: {accuracy: .5f}')
+    print(X_test[0:5], 'X_test[0:5]')
 
     # Example inference
     inference, _ = make_inference(
@@ -113,3 +103,5 @@ def main():
 if __name__ == '__main__':
     set_random_seed(42)
     main()
+
+    

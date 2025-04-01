@@ -1,4 +1,5 @@
 data/
+venv/
 outputs/
 __pycache__/
 .idea/outputs/
