@@ -17,6 +17,7 @@ We experimented with the following models:
 ## Final Results
 From our final report, the best-performing model achieved:
 - **Accuracy: 91%**
+- **Final accuracy with pred.py: 86%**
 
 ## Requirements
 - Python 3.x
