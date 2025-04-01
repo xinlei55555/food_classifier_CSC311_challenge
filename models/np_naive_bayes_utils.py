@@ -99,7 +99,7 @@ def train_val_test_split(data, train_size=0.7, val_size=0.15, test_size=0.15,
            "Split sizes must sum to 1"
     
     # Prepare text data
-    texts = [','.join(row[:-1]) for row in data]
+    texts = [' '.join(row[:-1]) for row in data]
 
     # Assuming the last column is the label
     labels = [row[-1] for row in data]

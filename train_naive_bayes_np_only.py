@@ -64,8 +64,12 @@ def main():
     unwanted_indexes = []  # [0, 1, 2, 4]
     data = np.delete(data, unwanted_indexes, axis=1)
 
+    print(data[0], 'data[0]')
+
     (X_train, y_train), (X_val, y_val), (X_test, y_test), vocab = train_val_test_split(data, split_file='datasets/train_test_split.csv')
     
+    print(list(X_train[0]), 'X_train[0:5]')
+    # exit()
     # Grid search for best (a, b) values
     a_range = b_range = range(0, 10, 1)
     a, b = grid_search(X_train, y_train, vocab, X_val, y_val, a_range, b_range)
