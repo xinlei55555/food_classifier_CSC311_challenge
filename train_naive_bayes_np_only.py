@@ -4,6 +4,7 @@ import random
 import numpy as np
 import json
 import os
+
 from models.np_naive_bayes_utils import grid_search, train_naive_bayes, make_inference, load_data, train_val_test_split, evaluate_accuracy
 from clean.drink_cleaning import process_drink, parse_common_drinks
 
@@ -84,7 +85,7 @@ def main():
     print(f'Validation Accuracy: {accuracy:.5f}')
 
     # Evaluate final accuracy for test set
-    accuracy = evaluate_accuracy(class_priors, class_probs, vocab, X_test, y_test)
+    accuracy = evaluate_accuracy(class_priors, class_probs, vocab, X_test, y_test, confusion_matrix=True)
     print(f'Testing Accuracy: {accuracy: .5f}')
     print(X_test[0:5], 'X_test[0:5]')
 
@@ -98,3 +99,5 @@ def main():
 if __name__ == '__main__':
     set_random_seed(42)
     main()
+
+    

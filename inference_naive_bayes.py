@@ -8,7 +8,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import clean.drink_cleaning
 from models.np_naive_bayes_utils import transform_vectorizer, make_inference
 
-common_drinks = clean.drink_cleaning.parse_common_drinks(os.path.join("..", "clean", "common_drinks.simple"))
+common_drinks = clean.drink_cleaning.parse_common_drinks(os.path.join("clean", "common_drinks.simple"))
 
 def load_model(model_dir='saved_model', verbose=False):
     """Load trained model components from files"""
@@ -48,6 +48,11 @@ if __name__ == '__main__':
     print(f"Logits: {logits}")
     
     text = 'I eat this with friends, on weekends, with little hot sauce, and at a party' 
+    prediction, logits = predict(text, verbose=True)
+    print(f"\nFinal Prediction: {prediction}")
+    print(f"Logits: {logits}")
+
+    text = 'I eat this with friends, on weekends, with no hot sauce, and at dinner, and it makes me think of tokyo drift.'
     prediction, logits = predict(text, verbose=True)
     print(f"\nFinal Prediction: {prediction}")
     print(f"Logits: {logits}")
