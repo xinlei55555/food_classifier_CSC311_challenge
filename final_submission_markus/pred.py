@@ -208,26 +208,28 @@ def predict_all(csv_name):
 
 if __name__ == '__main__':
     # Example usage
-    csv_name = os.path.join('test_data', 'data_without_labels.csv')
-    predictions = predict_all(csv_name)
+    # csv_name = os.path.join('test_data', 'data_without_labels.csv')
+    # predictions = predict_all(csv_name)
 
-    labels_df = pd.read_csv(os.path.join('test_data', "labels.csv"), header=None)
+    # labels_df = pd.read_csv(os.path.join('test_data', "labels.csv"), header=None)
 
-    # Display the loaded labels
-    print(labels_df)
-    labels = labels_df[0].tolist()
-    print(labels[0:10])
-    print(labels[-1])
-    print(predictions[0:10])
-    print(predictions[-1])
-    print(len(labels))
-    print(len(predictions))
-    correct = 0
-    total = 0
-    for idx in range(len(labels)):
-        if labels[idx] == predictions[idx]:
-            correct += 1
-        total += 1
-    print(f"Sample Accuracy for the CSV: {correct / total * 100:.2f}%")
-    print('labels', labels[0:10])
-    print('labels', predictions[0:10])
+    # # Display the loaded labels
+    # print(labels_df)
+    # labels = labels_df[0].tolist()
+    # print(labels[0:10])
+    # print(labels[-1])
+    # print(predictions[0:10])
+    # print(predictions[-1])
+    # print(len(labels))
+    # print(len(predictions))
+    # correct = 0
+    # total = 0
+    # for idx in range(len(labels)):
+    #     if labels[idx] == predictions[idx]:
+    #         correct += 1
+    #     total += 1
+    # print(f"Sample Accuracy for the CSV: {correct / total * 100:.2f}%")
+    # print('labels', labels[0:10])
+    # print('labels', predictions[0:10])
+
+    pass
