@@ -70,8 +70,8 @@ def parse_data(data):
     """
     Parses data from the CSV file and returns matrix X.
     """
-    common_drinks = parse_common_drinks(input_simple_file="../clean/common_drinks.simple")
-    drinks_list = parse_drinks_list(input_simple_file="../clean/common_drinks.simple")
+    common_drinks = parse_common_drinks(input_simple_file="common_drinks.simple")
+    drinks_list = parse_drinks_list(input_simple_file="common_drinks.simple")
     process_string_vectorized = np.vectorize(process_string)
 
     q1 = data[:, 1]  # How complex? (1-5)
@@ -94,7 +94,7 @@ def parse_data(data):
         #     naive_bayes_q += data[i][j]
         #     naive_bayes_q += '.'
         naive_bayes_data = data[i]
-        _, logits = predict_smart(naive_bayes_data, model_dir='../saved_model', verbose=False)
+        _, logits = predict_smart(naive_bayes_data, model_dir='.', verbose=False)
         if chaining:
             q9[i] = logits['Pizza']
             q10[i] = logits['Shawarma']
@@ -162,15 +162,16 @@ def predict_all(csv_filename):
 
 
 if __name__ == '__main__':
-    predictions = predict_all('../data/test.csv')
-    with open('../data/test_targets.csv', mode='r', encoding='utf-8') as file:
-        reader = csv.reader(file)
-        targets = list(reader)
+    # predictions = predict_all('../data/test.csv')
+    # with open('../data/test_targets.csv', mode='r', encoding='utf-8') as file:
+    #     reader = csv.reader(file)
+    #     targets = list(reader)
     
-    correct = 0
-    for i in range(1, len(targets)):
-        print(targets[i][0], predictions[i-1])
-        if targets[i][0] == predictions[i-1]:
-            correct += 1
-    print(float(correct) / len(targets))
-    #print(predictions)
+    # correct = 0
+    # for i in range(1, len(targets)):
+    #     print(targets[i][0], predictions[i-1])
+    #     if targets[i][0] == predictions[i-1]:
+    #         correct += 1
+    # print(float(correct) / len(targets))
+    # #print(predictions)
+    pass
