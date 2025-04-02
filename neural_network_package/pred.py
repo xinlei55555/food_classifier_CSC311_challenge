@@ -59,10 +59,10 @@ def predict_all(csv_filename):
     
     # Process columns using imported functions
     q1 = data[:, 1].astype(float)
-    # if np.issubdtype(data[:, 2].dtype, np.number):
-    #     q2 = np.array(data[:, 2], dtype=float)
-    # else:
-    #     q2 = np.vectorize(process_string)(data[:, 2])
+    if np.issubdtype(data[:, 2].dtype, np.number):
+        q2 = np.array(data[:, 2], dtype=float)
+    else:
+        q2 = np.vectorize(process_string)(data[:, 2])
     q2 = np.array(data[:, 2], dtype=float)
     q3 = np.array([process_multihot(str(x), q3_options) for x in data[:, 3]])
     q4 = np.vectorize(process_string)(data[:, 4])
