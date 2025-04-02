@@ -9,9 +9,14 @@ import json
 
 
 def load_data(data_path):
+
     with open(data_path, newline='', encoding='utf-8') as f:
         reader = csv.reader(f)
         data = [row for row in reader]
+    
+    # skip the first row if questions
+    if data[0][0] == 'id':
+        data = data[1:]
     return data
 
 
