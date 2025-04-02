@@ -4,6 +4,9 @@ def split_csv(input_csv: str):
     # Load the CSV file
     df = pd.read_csv(input_csv)
     
+    # Shuffle the data (excluding the header)
+    df = df.sample(frac=1, random_state=42).reset_index(drop=True)
+    
     # Separate the last column
     labels = df.iloc[:, -1]
     data_without_labels = df.iloc[:, :-1]

@@ -11,7 +11,6 @@ import json
 def load_data(data_path):
     with open(data_path, newline='', encoding='utf-8') as f:
         reader = csv.reader(f)
-        header = next(reader)  # Skip header
         data = [row for row in reader]
     return data
 
