@@ -12,6 +12,10 @@ def load_data(data_path):
     with open(data_path, newline='', encoding='utf-8') as f:
         reader = csv.reader(f)
         data = [row for row in reader]
+    
+    # skip the first row if questions
+    if data[0][0] == 'id':
+        data = data[1:]
     return data
 
 
@@ -208,9 +212,10 @@ def predict_all(csv_name):
 if __name__ == '__main__':
     # Example usage
     # csv_name = os.path.join('test_data', 'data_without_labels.csv')
+    # csv_name = os.path.join('test_data_more', 'test.csv')
     # predictions = predict_all(csv_name)
 
-    # labels_df = pd.read_csv(os.path.join('test_data', "labels.csv"), header=None)
+    # labels_df = pd.read_csv(os.path.join('test_data_more', "test_targets.csv"), header=None)
 
     # # Display the loaded labels
     # print(labels_df)
