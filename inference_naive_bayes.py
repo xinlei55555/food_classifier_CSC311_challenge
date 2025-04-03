@@ -65,7 +65,10 @@ if __name__ == '__main__':
     # print(f"Logits: {logits}")
 
 
-    text = 'This item would cost around 5 dollars, have 5 ingredients, and be eaten at a party with friends.'
+    # text = 'This item would cost around 5 dollars, have 5 ingredients, and be eaten at a party with friends.'
+    # text = "'999993', '3', '7', 'Weekend lunch,Weekend dinner,At a party,Late night snack', '7$', 'Spaceballs and other parody movies', 'carbonated sweet drinks, such as cocacola, pepsi, etc', 'Friends', 'None',"
+    # text = "'5', '4', 'Week day lunch,Week day dinner,Weekend lunch,Weekend dinner,At a party', '15', 'Cars 2', 'Water', 'Friends,Strangers', 'None'"
+    text = "'4', '9', 'Week day lunch,Week day dinner,Late night snack', '11.99', 'borat', 'Soave', 'Friends,Strangers', 'A lot (hot)'"
     prediction, logits = predict(text, verbose=True)
     print(f"\nFinal Prediction: {prediction}")
     print(f"Logits: {logits}")
